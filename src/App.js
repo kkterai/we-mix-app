@@ -7,7 +7,6 @@ import * as actions from './actions/videoActions';
 class App extends React.Component {
 
     componentWillMount() {
-        debugger
         this.props.actions.getUserVideos()
     }
 
