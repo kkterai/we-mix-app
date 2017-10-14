@@ -16,6 +16,6 @@ export function searchArtist(name) {
     dispatch({ type: 'SEARCH_ARTIST' });
     return fetch(`http://www.theaudiodb.com/api/v1/json/${REACT_APP_SECRET_CODE}/searchalbum.php?s=${name}`)
         .then(response => response.json())
-        .then(musicVideos => dispatch({ type: 'FETCH_MUSIC_VIDEOS', payload: musicVideos }));
+        .then(artist => dispatch({ type: 'FETCH_ARTIST', payload: artist }));
     };
 }
