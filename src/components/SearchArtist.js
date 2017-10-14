@@ -5,13 +5,13 @@ class SearchArtist extends Component {
     constructor() {
         super();
         this.state = {
-          text: '',
+          searchName: ''
         };
       }
     
     handleChange() {
         this.setState({
-            text: event.target.value
+            searchName: event.target.value
         });
     }
     
@@ -19,7 +19,7 @@ class SearchArtist extends Component {
         event.preventDefault();
         this.props.store.dispatch({
           type: 'SEARCH_ARTIST',
-          artist: this.state,
+          searchName: this.state,
         });
     }
         

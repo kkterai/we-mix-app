@@ -2,15 +2,14 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions/videoActions';
+import * as actions from './actions/userActions';
+import SearchArtist from './components/SearchArtist'
 
 class App extends React.Component {
 
     componentWillMount() {
         this.props.actions.getUserVideos()
     }
-
-    
 
     render() {
       return (
@@ -22,6 +21,7 @@ class App extends React.Component {
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
+        <SearchArtist />
         </div>
       );
     }
@@ -33,7 +33,7 @@ class App extends React.Component {
   }
 
   const mapStateToProps = function(state) {
-    return { videos: state.videos}
+    return { videos: state.userVideos}
   }
   
   export default App = connect(mapStateToProps, mapDispatchToProps)(App)
