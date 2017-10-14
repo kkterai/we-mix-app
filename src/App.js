@@ -10,8 +10,7 @@ class App extends React.Component {
         this.props.actions.getUserVideos()
     }
 
-    // componentDidMount - Music API
-
+    
 
     render() {
       return (
