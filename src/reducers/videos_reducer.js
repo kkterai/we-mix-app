@@ -1,8 +1,12 @@
 export default function catsReducer(state = { loading: false, videos: [] }, action) {
+
     switch (action.type) {
-     
-      default:
-        return state;
+        case 'LOADING_USER_VIDEOS':
+            return Object.assign({}, state, {loading: true })
+        case 'FETCH_USER_VIDEOS':
+            return {loading: false, videos: action.payload }
+        default:
+            return state;
     }
   };
 

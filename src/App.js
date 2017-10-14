@@ -1,36 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import * as actions from './actions/videoActions';
-import 'whatwg-fetch';
+import { getUserVideos } from './actions/videoActions';
 
 export default class App extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            videos: []
-        }
-
-    }
 
     componentWillMount() {
-        this.getUserVideos();
-    }
-
-    getUserVideos = () => {
-        let userVideos = fetch('http://localhost:3000/api/v1/videos').then(function(response) {
-            return response.json()
-          }).then(function(json) {
-            console.log('parsed json', json)
-          }).catch(function(ex) {
-            console.log('parsing failed', ex)
-          })
-          debugger
-        this.setState({ 
-            videos: userVideos
-        });
+        debugger
+        this.props.actions.getUserVideos()
     }
 
     // componentDidMount - Music API
@@ -50,4 +28,16 @@ export default class App extends React.Component {
       );
     }
   }
+ 
+  const mapDispatchToProps = (dispatch) => {
+    return { actions: bindActionCreators( getUserVideos, dispatch )
+    } 
+  }
+
+  const mapStateToProps = function(state) {
+    return { videos: state.videos}
+  }
+  
+  export const WrapperApp =  connect(mapStateToProps, mapDispatchToProps)(App)
+  
   
