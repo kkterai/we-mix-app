@@ -1,4 +1,5 @@
-import fetch from 'whatwg-fetch';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export function getUserVideos() {
   return (dispatch) => {

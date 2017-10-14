@@ -2,9 +2,9 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getUserVideos } from './actions/videoActions';
+import * as actions from './actions/videoActions';
 
-export default class App extends React.Component {
+class App extends React.Component {
 
     componentWillMount() {
         debugger
@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
  
   const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators( getUserVideos, dispatch )
+    return { actions: bindActionCreators( actions, dispatch )
     } 
   }
 
@@ -38,6 +38,6 @@ export default class App extends React.Component {
     return { videos: state.videos}
   }
   
-  export const WrapperApp =  connect(mapStateToProps, mapDispatchToProps)(App)
+  export default App = connect(mapStateToProps, mapDispatchToProps)(App)
   
   
