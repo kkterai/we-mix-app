@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "dotenv": "^4.0.0",
     "es6-promise": "^4.1.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.6.1",
@@ -13,7 +14,8 @@
     "react-router": "^4.2.0",
     "react-scripts": "1.0.12",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.74.2"
   },
   "scripts": {
     "start": "react-scripts start",

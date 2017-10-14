@@ -1,5 +1,6 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+require('dotenv').config()
 
 export function getUserVideos() {
   return (dispatch) => {
@@ -11,11 +12,12 @@ export function getUserVideos() {
 }
 
 export function searchArtist(name) {
+  const secret = process.env.REACT_APP_SECRET_CODE
   let artist = name
   return (dispatch) => {
-    dispatch({ type: 'SEARCH_ARTIST' });
-    return fetch(`http://www.theaudiodb.com/api/v1/json/${REACT_APP_SECRET_CODE}/searchalbum.php?s=${name}`)
+    dispatch({ type: 'SEARCH_ARTIST_VIDEOS' });
+    return fetch(`http://www.theaudiodb.com/api/v1/json/${secret}/searchalbum.php?s=${name}`)
         .then(response => response.json())
-        .then(artist => dispatch({ type: 'FETCH_ARTIST', payload: artist }));
+        .then(artist => dispatch({ type: 'FETCH_ARTIST_VIDEOS', payload: artist }));
     };
 }
