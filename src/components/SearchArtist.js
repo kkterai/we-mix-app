@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Form, Button } from 'semantic-ui-react';
+import * as actions from '../actions/videoActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class SearchArtist extends Component {
     constructor(props) {
@@ -17,10 +20,11 @@ class SearchArtist extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        this.props.store.dispatch({
-          type: 'SEARCH_ARTIST',
-          searchName: this.state,
-        });
+        let name = this.state.searchName
+        this.props.actions.searchArtist(name)
+        this.setState({
+            searchName: ''
+        })
     }
         
     render(){
@@ -38,4 +42,15 @@ class SearchArtist extends Component {
     }
 }
 
-export default SearchArtist;
+const mapDispatchToProps = (dispatch) => {
+    return { actions: bindActionCreators( actions, dispatch )
+    } 
+  }
+
+  const mapStateToProps = function(state) {
+    return { artistVideos: state.searchArtist}
+  }
+  
+export default SearchArtist = connect(mapStateToProps, mapDispatchToProps)(SearchArtist)
+  
+  
