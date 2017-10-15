@@ -14,7 +14,7 @@ const rows = [
   ];
 
   const MyCustomCell = ({ mySpecialProp }) =>
-  
+
   <Cell>
     {mySpecialProp === "column2" ? "I'm column 2" : "I'm not column 2"}
   </Cell>;
@@ -28,27 +28,27 @@ export default class Albums extends Component {
         <Table
         rowHeight={50}
         rowsCount={rows.length}
-        width={5000}
-        height={5000}
+        width={1500}
+        height={2000}
         headerHeight={50}>
         <Column
-            header={<Cell>Col 1</Cell>}
+            header={<Cell>Album Name</Cell>}
             cell={<Cell>Column 1 static content</Cell>}
-            width={2000}
+            width={250}
         />
         <Column
-            header={<Cell>Col 2</Cell>}
-            cell={<MyCustomCell mySpecialProp="column2" />}
-            width={1000}
+            header={<Cell>Release</Cell>}
+            cell={<Cell>Column 2 static content</Cell>}
+            width={250}
         />
         <Column
-            header={<Cell>Col 3</Cell>}
+            header={<Cell>Videos</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
                 Data for column 3: {rows[rowIndex]}
             </Cell>
             )}
-            width={2000}
+            width={250}
         />
         </Table>
       )
