@@ -3,7 +3,7 @@ import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/videoActions';
-import SearchArtist from './components/SearchArtist'
+import SearchArtist from './containers/SearchArtist'
 
 class App extends React.Component {
 
