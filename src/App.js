@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/videoActions';
 import SearchArtist from './containers/SearchArtist'
+import Albums from './components/Albums'
 
 class App extends React.Component {
 
@@ -22,6 +23,7 @@ class App extends React.Component {
           </Navbar.Header>
         </Navbar>
         <SearchArtist />
+        <Albums />
         </div>
       );
     }
