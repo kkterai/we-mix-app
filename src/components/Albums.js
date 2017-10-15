@@ -1,0 +1,1 @@
+//Renders artist albums

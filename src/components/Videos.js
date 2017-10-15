@@ -1,0 +1,1 @@
+// Renders user or album VideoCards

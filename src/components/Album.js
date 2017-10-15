@@ -1,0 +1,1 @@
+// Renders individual album with its nested </Videos>
