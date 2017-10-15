@@ -29,15 +29,13 @@ class SearchArtist extends Component {
         
     render(){
         return(
-        <div>
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-            <p>
-                <label>Find Artist</label>
-                <input type="text" onChange={(event) => this.handleChange(event)}/>
-            </p>
-            <input type="submit" />
-            </form>
-        </div>
+            <Form onSubmit={(event) => this.handleSubmit(event)}>
+                <Form.Field  type="text" onChange={(event) => this.handleChange(event)}>
+                    {/* <label>Find Artist</label><br></br> */}
+                    <input placeholder='Search Artists' value={this.state.searchName}/>
+                    <Button type='submit'>Submit</Button>
+                </Form.Field>
+            </Form>
         );
     }
 }
