@@ -21,7 +21,6 @@ const rows = [
   
 export default class Albums extends Component {
 
-  
   // Render your table
   render() {
       return (
@@ -45,7 +44,7 @@ export default class Albums extends Component {
             header={<Cell>Videos</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
-                Data for column 3: {rows[rowIndex]}
+                <a href='#' >Video Link: {rows[rowIndex]}</a>
             </Cell>
             )}
             width={250}

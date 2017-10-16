@@ -3,6 +3,7 @@ import { Form, Button } from 'semantic-ui-react';
 import * as actions from '../actions/videoActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Albums from '../components/Albums';
 
 class SearchArtist extends Component {
     constructor(props) {
@@ -26,17 +27,21 @@ class SearchArtist extends Component {
             searchName: ''
         })
     }
-        
-    render(){
+
+
+    render() {
         return(
+            <div>
             <Form onSubmit={(event) => this.handleSubmit(event)}>
-                <Form.Field  type="text" onChange={(event) => this.handleChange(event)}>
+                <Form.Field  control="text" onChange={(event) => this.handleChange(event)}>
                     {/* <label>Find Artist</label><br></br> */}
                     <input placeholder='Search Artists' value={this.state.searchName}/>
                     <Button type='submit'>Submit</Button>
                 </Form.Field>
             </Form>
-        );
+            <Albums />
+            </div>
+        )
     }
 }
 
@@ -45,7 +50,7 @@ const mapDispatchToProps = (dispatch) => {
     } 
   }
 
-  const mapStateToProps = function(state) {
+const mapStateToProps = function(state) {
     return { artistVideos: state.searchArtist}
   }
   

@@ -23,7 +23,6 @@ class App extends React.Component {
           </Navbar.Header>
         </Navbar>
         <SearchArtist />
-        <Albums />
         </div>
       );
     }
