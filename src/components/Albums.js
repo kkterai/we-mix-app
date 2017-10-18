@@ -6,13 +6,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Table data as a list of array.
-const rows = [
-    "first row",
-    "second row",
-    "third row", 
-    "fourth row"
-    // .... and more
-  ];
+
+const rows = (this.props) ? this.props.artistAlbums.album : [];
 
   const MyCustomCell = ({ mySpecialProp }) =>
 
@@ -21,8 +16,6 @@ const rows = [
   </Cell>;
   
 class Albums extends Component {
-    
-  // Render your table
   render() {
       return (
         <Table
@@ -50,7 +43,7 @@ class Albums extends Component {
             header={<Cell>Videos</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
-                <a href='#' >Video Link: {rows[rowIndex]}</a>
+                console.log(rows[rowIndex].strDescriptionEN)
             </Cell>
             )}
             width={250}
@@ -59,6 +52,7 @@ class Albums extends Component {
       )
     }
   }
+
 
   const mapStateToProps = function(state) {
     return { artistAlbums: state.artist.albums}
