@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import {Table, Column, Cell} from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
-
+import { connect } from 'react-redux'; 
+import { bindActionCreators } from 'redux';
 
 // Table data as a list of array.
 const rows = [
@@ -19,7 +20,8 @@ const rows = [
     {mySpecialProp === "column2" ? "I'm column 2" : "I'm not column 2"}
   </Cell>;
   
-export default class Albums extends Component {
+class Albums extends Component {
+    
   // Render your table
   render() {
       return (
@@ -57,3 +59,10 @@ export default class Albums extends Component {
       )
     }
   }
+
+  const mapStateToProps = function(state) {
+    return { artistAlbums: state.artist.albums}
+  }
+
+  export default Albums = connect(mapStateToProps,null)(Albums)
+  
