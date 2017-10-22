@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 
 // Table data as a list of array.
 
-const rows = (this.props) ? this.props.artistAlbums.album : [];
+
 
   const MyCustomCell = ({ mySpecialProp }) =>
 
@@ -16,34 +16,52 @@ const rows = (this.props) ? this.props.artistAlbums.album : [];
   </Cell>;
   
 class Albums extends Component {
+
+  
   render() {
+
+    const rows = (this.props.artistAlbums.album) ? this.props.artistAlbums.album : [];
+    
       return (
         <Table
-        rowHeight={50}
+        rowHeight={100}
         rowsCount={rows.length}
         width={1500}
         height={2000}
         headerHeight={50}>
-        <Column
+        <Column // Album Cover
             header={<Cell>Album Cover</Cell>}
-            cell={<Cell>Column 1 static content</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+                <img src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].strAlbum } />
+            </Cell>
+            )}
             width={250}
         />
-        <Column
+        <Column // Album Name
             header={<Cell>Album Name</Cell>}
-            cell={<Cell>Column 1 static content</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+                { rows[rowIndex].strAlbum }
+            </Cell>
+            )}
             width={250}
         />
-        <Column
-            header={<Cell>Release</Cell>}
-            cell={<Cell>Column 2 static content</Cell>}
+        <Column // Release
+            header={<Cell>Description</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+                { rows[rowIndex].strDescriptionEN }
+            </Cell>
+            )}
             width={250}
         />
-        <Column
+      
+        <Column // Link to album videos
             header={<Cell>Videos</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
-                console.log(rows[rowIndex].strDescriptionEN)
+                { rows[rowIndex].strDescriptionEN }
             </Cell>
             )}
             width={250}
