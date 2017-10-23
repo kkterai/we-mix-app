@@ -3,21 +3,16 @@ import React, { Component } from 'react';
 import {Table, Column, Cell} from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { connect } from 'react-redux'; 
-import { bindActionCreators } from 'redux';
 
 // Table data as a list of array.
 
+function handleClick(e) {
+  e.preventDefault();
+  console.log('The link was clicked.');
+}
 
-
-  const MyCustomCell = ({ mySpecialProp }) =>
-
-  <Cell>
-    {mySpecialProp === "column2" ? "I'm column 2" : "I'm not column 2"}
-  </Cell>;
-  
 class Albums extends Component {
 
-  
   render() {
 
     const rows = (this.props.artistAlbums.album) ? this.props.artistAlbums.album : [];
@@ -33,7 +28,9 @@ class Albums extends Component {
             header={<Cell>Album Cover</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
+              <a href="#" onClick={ handleClick }>
                 <img src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].strAlbum } />
+              </a>
             </Cell>
             )}
             width={250}
@@ -57,7 +54,7 @@ class Albums extends Component {
             width={250}
         />
       
-        <Column // Link to album videos
+        {/* <Column // Link to album videos
             header={<Cell>Videos</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
@@ -65,12 +62,12 @@ class Albums extends Component {
             </Cell>
             )}
             width={250}
-        />
+        /> */}
+
         </Table>
       )
     }
   }
-
 
   const mapStateToProps = function(state) {
     return { artistAlbums: state.artist.albums}

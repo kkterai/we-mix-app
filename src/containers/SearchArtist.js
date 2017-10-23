@@ -3,9 +3,7 @@ import { Form, Button } from 'semantic-ui-react';
 import * as actions from '../actions/videoActions';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
-import { Table, Column, Cell} from 'fixed-data-table-2';
 import Albums from '../components/Albums'
-
 
 class SearchArtist extends Component {
     constructor(props) {
@@ -53,7 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 
 const mapStateToProps = function(state) {
-    return { artistVideos: state.searchArtist}
+    return { artistAlbums: state.searchArtist}
   }
   
 export default SearchArtist = connect(mapStateToProps, mapDispatchToProps)(SearchArtist)
