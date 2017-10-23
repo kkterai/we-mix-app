@@ -6,12 +6,35 @@ import { connect } from 'react-redux';
 
 // Table data as a list of array.
 
-function handleClick(e) {
-  e.preventDefault();
-  console.log('The link was clicked.');
-}
+// function handleClick(e) {
+//   e.preventDefault();
+//   console.log('The link was clicked.');
+// }
 
 class Albums extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchAlbum: ''
+    };
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    debugger
+    this.setState({
+        searchAlbum: e.target.value
+    });
+}
+
+// handleSubmit(event) {
+//     event.preventDefault();
+//     let name = this.state.searchName
+//     this.props.actions.searchArtist(name)
+//     this.setState({
+//         searchName: ''
+//     })
+// }
 
   render() {
 
@@ -24,16 +47,16 @@ class Albums extends Component {
         width={1500}
         height={2000}
         headerHeight={50}>
-        <Column // Album Cover
-            header={<Cell>Album Cover</Cell>}
+        <Column // Album Cover - attribute to grab album ->idAlbum
+            header={<Cell></Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
-              <a href="#" onClick={ handleClick }>
+              <a href="#" onClick={ this.handleClick }> 
                 <img src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].strAlbum } />
               </a>
             </Cell>
             )}
-            width={250}
+            width={130}
         />
         <Column // Album Name
             header={<Cell>Album Name</Cell>}
@@ -51,7 +74,7 @@ class Albums extends Component {
                 { rows[rowIndex].strDescriptionEN }
             </Cell>
             )}
-            width={250}
+            width={750}
         />
       
         {/* <Column // Link to album videos
