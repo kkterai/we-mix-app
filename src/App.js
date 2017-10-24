@@ -1,9 +1,10 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/videoActions';
 import SearchArtist from './containers/SearchArtist'
+import { Input, Menu } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
 
@@ -14,13 +15,15 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">We-Mix!!</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-        </Navbar>
+        {/* <Menu>
+          <Menu.Item>
+            <Input className='icon' icon='search' placeholder='Search...' />
+          </Menu.Item>
+      
+          <Menu.Item position='right'>
+            <Input action={{ type: 'submit', content: 'Go' }} placeholder='Navigate to...' />
+          </Menu.Item>
+        </Menu> */}
         <SearchArtist />
         </div>
       );
