@@ -11,10 +11,6 @@ export function getUserVideos() {
   };
 }
 
-
-// http://www.theaudiodb.com/api/v1/json/{APIKEY}/mvid.php?i=(artistid}
-
-
 export function searchArtist(name) {
   const secret = process.env.REACT_APP_SECRET_CODE
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
@@ -26,15 +22,13 @@ export function searchArtist(name) {
     };
 }
 
-//http://www.theaudiodb.com/api/v1/json/{APIKEY}/album.php?m={albumid}
-
-// export function searchAlbum(albumId) {
-//   const secret = process.env.REACT_APP_SECRET_CODE
-//   const corsURL = 'https://cors-anywhere.herokuapp.com/'
-//   return (dispatch) => {
-//     dispatch({ type: 'SEARCH_ARTIST_VIDEOS' });
-//     return fetch(`${corsURL}http://www.theaudiodb.com/api/v1/json/${secret}/album.php?m=${albumId}`)
-//         .then(response => response.json())
-//         .then(artist => dispatch({ type: 'FETCH_ARTIST_VIDEOS', payload: artist }));
-//     };
-// }
+export function searchAlbum(albumId) {
+  const secret = process.env.REACT_APP_SECRET_CODE
+  const corsURL = 'https://cors-anywhere.herokuapp.com/'
+  return (dispatch) => {
+    dispatch({ type: 'SEARCH_ARTIST_VIDEOS' });
+    return fetch(`${corsURL}http://www.theaudiodb.com/api/v1/json/${secret}/album.php?m=${albumId}`)
+        .then(response => response.json())
+        .then(artist => dispatch({ type: 'FETCH_ARTIST_VIDEOS', payload: artist }));
+    };
+}
