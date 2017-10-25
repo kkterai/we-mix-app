@@ -5,6 +5,7 @@ import * as actions from './actions/videoActions';
 import SearchArtist from './containers/SearchArtist'
 import { Input, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -15,16 +16,10 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-        {/* <Menu>
-          <Menu.Item>
-            <Input className='icon' icon='search' placeholder='Search...' />
-          </Menu.Item>
-      
-          <Menu.Item position='right'>
-            <Input action={{ type: 'submit', content: 'Go' }} placeholder='Navigate to...' />
-          </Menu.Item>
-        </Menu> */}
-        <SearchArtist />
+        <Router>
+          <Route exact path="/" component={SearchArtist} />
+          
+        </Router>
         </div>
       );
     }

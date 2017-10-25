@@ -55,17 +55,6 @@ render() {
           )}
           width={750}
       />
-    
-      {/* <Column // Link to album videos
-          header={<Cell>Videos</Cell>}
-          cell={({rowIndex, ...props}) => (
-          <Cell {...props}>
-              { rows[rowIndex].strDescriptionEN }
-          </Cell>
-          )}
-          width={250}
-      /> */}
-
       </Table>
     )
   }
