@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/videoActions';
+import Home from './components/Home'
 import SearchArtist from './containers/SearchArtist'
 import { Input, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -16,10 +17,11 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-        <Router>
-          <Route exact path="/" component={SearchArtist} />
-          
-        </Router>
+  
+          <Switch>
+            <Route path='/' component={Home}/>
+            <Route path='/search' component={SearchArtist} />
+          </Switch>
         </div>
       );
     }

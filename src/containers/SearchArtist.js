@@ -4,6 +4,7 @@ import * as actions from '../actions/videoActions';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
 import Albums from '../components/Albums'
+import { Switch, Route } from 'react-router-dom'
 
 class SearchArtist extends Component {
     constructor(props) {
@@ -29,17 +30,19 @@ class SearchArtist extends Component {
     }
 
     render() {
+        const path=`/${this.state.searchName}`
 
         return(
             <div>
-            <Form onSubmit={(event) => this.handleSubmit(event)}>
-                <Form.Field  control="text" onChange={(event) => this.handleChange(event)}>
-                    {/* <label>Find Artist</label><br></br> */}
-                    <input placeholder='Search Artists' value={this.state.searchName}/>
-                    <Button type='submit'>Submit</Button>
-                </Form.Field>
-            </Form>
-            <Albums />
+                <Form onSubmit={(event) => this.handleSubmit(event)}>
+                    <Form.Field  control="text" onChange={(event) => this.handleChange(event)}>
+                        <input placeholder='Search Artists' value={this.state.searchName}/>
+                        <Button type='submit'>Submit</Button>
+                    </Form.Field>
+                </Form>
+                <Switch>
+                    <Route path={ path } component={ Albums }/>
+                </Switch>
             </div>
         )
     }
