@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions/videoActions';
+import { Switch, Route, withRouter } from 'react-router-dom';
+
 import Home from './components/Home'
 import SearchArtist from './containers/SearchArtist'
+import Albums from './components/Albums';
+
+import * as actions from './actions/videoActions';
+
 import { Input, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
-import { Switch, Route } from 'react-router-dom';
+
 
 class App extends React.Component {
 
@@ -17,11 +22,11 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-  
-          <Switch>
-            <Route path='/' component={Home}/>
+            <Route exact path='/' component={Home}/>
             <Route path='/search' component={SearchArtist} />
-          </Switch>
+            <Switch>
+              <Route path='/search/albums' component={Albums} />
+            </Switch>
         </div>
       );
     }
@@ -36,6 +41,6 @@ class App extends React.Component {
     return { videos: state.userVideos}
   }
   
-  export default App = connect(mapStateToProps, mapDispatchToProps)(App)
+  export default App = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
   
   

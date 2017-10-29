@@ -3,8 +3,7 @@ import { Form, Button } from 'semantic-ui-react';
 import * as actions from '../actions/videoActions';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
-import Albums from '../components/Albums'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class SearchArtist extends Component {
     constructor(props) {
@@ -21,16 +20,18 @@ class SearchArtist extends Component {
     }
     
     handleSubmit(event) {
+
+        const redirect = "/search/albums"
+
         event.preventDefault();
         let name = this.state.searchName
-        this.props.actions.searchArtist(name)
+        this.props.actions.searchArtist(name, this.props.history, redirect)
         this.setState({
             searchName: ''
         })
     }
 
     render() {
-        const path=`/${this.state.searchName}`
 
         return(
             <div>
@@ -40,9 +41,6 @@ class SearchArtist extends Component {
                         <Button type='submit'>Submit</Button>
                     </Form.Field>
                 </Form>
-                <Switch>
-                    <Route path={ path } component={ Albums }/>
-                </Switch>
             </div>
         )
     }

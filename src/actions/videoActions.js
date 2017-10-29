@@ -11,14 +11,15 @@ export function getUserVideos() {
   };
 }
 
-export function searchArtist(name) {
+export function searchArtist(name, history, redirect) {
   const secret = process.env.REACT_APP_SECRET_CODE
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
   return (dispatch) => {
     dispatch({ type: 'SEARCH_ARTIST_ALBUMS' });
     return fetch(`${corsURL}http://www.theaudiodb.com/api/v1/json/${secret}/searchalbum.php?s=${name}`)
         .then(response => response.json())
-        .then(artist => dispatch({ type: 'FETCH_ARTIST_ALBUMS', payload: artist }));
+        .then(artist => dispatch({ type: 'FETCH_ARTIST_ALBUMS', payload: artist }))
+        .then(history.push(redirect))
     };
 }
 
