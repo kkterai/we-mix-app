@@ -3,7 +3,6 @@ import { Form, Button } from 'semantic-ui-react';
 import * as actions from '../actions/videoActions';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
-import { Switch, Route, Redirect } from 'react-router-dom';
 
 class SearchArtist extends Component {
     constructor(props) {

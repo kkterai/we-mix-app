@@ -9,7 +9,7 @@ import Albums from './components/Albums';
 
 import * as actions from './actions/videoActions';
 
-import { Input, Menu } from 'semantic-ui-react'
+// import { Input, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -20,12 +20,13 @@ class App extends React.Component {
     }
 
     render() {
+      // need to incorporate nav bar, get rid of search when album found ("search" tab)
       return (
         <div className="app">
             <Route exact path='/' component={Home}/>
             <Route path='/search' component={SearchArtist} />
             <Switch>
-              <Route path='/search/albums' component={Albums} />
+              <Route path='/search/albums' component={Albums} /> 
             </Switch>
         </div>
       );
