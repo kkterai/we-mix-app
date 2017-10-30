@@ -26,7 +26,7 @@ render() {
       width={1500}
       height={2000}
       headerHeight={50}>
-      <Column // Album Cover - attribute to grab album ->idAlbum
+      <Column // Album Cover - attribute to grab album ->idAlbum CAN I CALCULATE THE HEIGHT OF THE DESCRIPTION??
           header={<Cell></Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
