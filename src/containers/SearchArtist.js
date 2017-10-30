@@ -45,14 +45,13 @@ class SearchArtist extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators( actions, dispatch )
-    } 
-  }
-
 const mapStateToProps = function(state) {
     return { artistAlbums: state.searchArtist}
   }
+
+const mapDispatchToProps = (dispatch) => {
+    return { actions: bindActionCreators( actions, dispatch )} 
+}
   
 export default SearchArtist = connect(mapStateToProps, mapDispatchToProps)(SearchArtist)
   

@@ -6,14 +6,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'; 
 import { searchAlbum } from  '../actions/videoActions';
 
-// Table data as a list of array.
 
 class Albums extends Component {
   
   handleOnClick(event) {
-    debugger
-    this.props.searchAlbum(event.target.name);
-}
+    let albumId = event.target.alt
+    let artistId = event.target.name
+    let redirect = `/search/results/${artistId}`
+    this.props.searchAlbum(artistId, albumId, this.props.history, redirect)
+  } 
 
 render() {
 
@@ -30,9 +31,9 @@ render() {
           header={<Cell></Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
-            <a href="#" onClick={ (event) => this.handleOnClick(event) }> 
-              <img name={ rows[rowIndex].idArtist } src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].strAlbum } />
-            </a>
+            <button onClick={ (event) => this.handleOnClick(event) }> 
+              <img name={ rows[rowIndex].idArtist } src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].idAlbum }  />
+            </button>
           </Cell>
           )}
           width={130}
@@ -61,7 +62,7 @@ render() {
 }
 
 const mapStateToProps = (state) => {
-  return { artistAlbums: state.artist.albums}
+  return { artistAlbums: state.artist.albums }
 }
 
 const mapDispatchToProps = (dispatch) => {

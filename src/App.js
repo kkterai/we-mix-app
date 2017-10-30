@@ -5,7 +5,8 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Home from './components/Home';
 import SearchArtist from './containers/SearchArtist';
-import Albums from './components/Albums';
+import Albums from './containers/Albums';
+import AlbumVideos from './components/AlbumVideos';
 import Navigation from './components/nav/Navigation';
 
 import * as actions from './actions/videoActions';
@@ -28,7 +29,8 @@ class App extends React.Component {
             <Route exact path='/' component={Home}/>
             <Route path='/search' component={SearchArtist} />
             <Switch>
-              <Route path='/search/results' component={Albums} /> 
+              <Route path='/search/results' component={Albums} />
+              <Route exact path='/search/:id' component={AlbumVideos} />
             </Switch>
         </div>
       );
