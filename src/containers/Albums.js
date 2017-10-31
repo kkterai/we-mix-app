@@ -22,12 +22,12 @@ render() {
   
     return (
       <Table
-      rowHeight={100}
+      rowHeight={150}
       rowsCount={rows.length}
       width={1500}
       height={2000}
       headerHeight={50}>
-      <Column // Album Cover - attribute to grab album ->idAlbum CAN I CALCULATE THE HEIGHT OF THE DESCRIPTION??
+      <Column // Album Cover; Description - find a way to cut length/"show more" to link to show page
           header={<Cell></Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>

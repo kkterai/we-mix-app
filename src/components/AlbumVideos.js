@@ -13,13 +13,15 @@ render() {
   const rows = (this.props.tracks) ? this.props.tracks : [];
   
     return (
+
+
       <Table
       rowHeight={250}
       rowsCount={rows.length}
       width={1500}
       height={2000}
       headerHeight={50}>
-      <Column // Track Name CAN I CALCULATE THE HEIGHT OF THE DESCRIPTION??
+      <Column // Track Name 
           header={<Cell>Track Name</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>

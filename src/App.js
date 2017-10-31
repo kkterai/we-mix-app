@@ -27,7 +27,7 @@ class App extends React.Component {
         <div className="app">
           <Navigation />
             <Route exact path='/' component={Home}/>
-            <Route path='/search' component={SearchArtist} />
+            <Route path='/find_artist' component={SearchArtist} />
             <Switch>
               <Route path='/search/results/videos' component={AlbumVideos} />
               <Route path='/search/results' component={Albums} />
