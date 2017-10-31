@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {Table, Column, Cell} from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { connect } from 'react-redux'; 
-// import { bindActionCreators } from 'redux'; 
-// import { searchAlbum } from  '../actions/videoActions';
+import 'video-react/dist/video-react.css'; 
+import { Player } from 'video-react';
 
 
 class AlbumVideos extends Component {
@@ -14,7 +14,7 @@ render() {
   
     return (
       <Table
-      rowHeight={100}
+      rowHeight={250}
       rowsCount={rows.length}
       width={1500}
       height={2000}
@@ -26,16 +26,18 @@ render() {
             { rows[rowIndex].strTrack }
           </Cell>
           )}
-          width={130}
+          width={250}
       />
-      <Column // Video
+      <Column // Video - React video player seems to only work w/ mp4 format; HTML iframe and object do not show a player at all
           header={<Cell>Video</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
-              { rows[rowIndex].strMusicVid }
+            <Player>
+              <source src={ rows[rowIndex].strMusicVid } />
+            </Player>
           </Cell>
           )}
-          width={250}
+          width={400}
       />
       <Column // Add Video - create button and action
           header={<Cell>Add Video</Cell>}
@@ -43,7 +45,7 @@ render() {
           <Cell {...props}>
           </Cell>
           )}
-          width={100}
+          width={150}
       />
       </Table>
     )
