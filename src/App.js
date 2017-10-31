@@ -11,7 +11,6 @@ import Navigation from './components/nav/Navigation';
 
 import * as actions from './actions/videoActions';
 
-// import { Input, Menu } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -29,8 +28,8 @@ class App extends React.Component {
             <Route exact path='/' component={Home}/>
             <Route path='/find_artist' component={SearchArtist} />
             <Switch>
-              <Route path='/search/results/videos' component={AlbumVideos} />
-              <Route path='/search/results' component={Albums} />
+              <Route path='/results/videos' component={AlbumVideos} />
+              <Route path='/results' component={Albums} />
             </Switch>
         </div>
       );

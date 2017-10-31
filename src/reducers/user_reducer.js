@@ -5,6 +5,8 @@ export default function userReducer(state = { loading: false, videos: [] }, acti
             return Object.assign({}, state, {loading: true })
         case 'FETCH_USER_VIDEOS':
             return {loading: false, videos: action.payload }
+        case 'ADD_VIDEO':
+            return { videos: state.videos.concat(action.video) }
         default:
             return state;
     }

@@ -1,4 +1,3 @@
-//Renders artist albums
 import React, { Component } from 'react';
 import {Table, Column, Cell} from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
@@ -12,7 +11,7 @@ class Albums extends Component {
   handleOnClick(event) {
     let albumId = event.target.alt
     let artistId = event.target.name
-    let redirect = '/search/results/videos'
+    let redirect = '/results/videos'
     this.props.searchAlbum(artistId, albumId, this.props.history, redirect)
   } 
 

@@ -32,3 +32,10 @@ export function searchAlbum(artistId, albumId, history, redirect) {
         .then(history.push(redirect));
     };
 }
+
+export const addVideo = video => {
+  return {
+    type: 'ADD_VIDEO',
+    video: Object.assign({}, video )
+  }
+}

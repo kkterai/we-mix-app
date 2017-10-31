@@ -5,11 +5,14 @@ export default function albumReducer(state = { loading: false, tracks: [] }, act
         case 'SEARCH_ALBUM_VIDEOS':
             return Object.assign({}, state, {loading: true })
         case 'FETCH_ALBUM_VIDEOS':
-            let videoArray = action.payload.mvids
-            console.log(action)
-            let tracks = videoArray.filter( video => video.idAlbum === action.id )
-            console.log(tracks)
-            return { loading: false, tracks: tracks }
+            if (action.payload.mvids) {
+                let videoArray = action.payload.mvids
+                console.log(action.payload)
+                let tracks = videoArray.filter( video => video.idAlbum === action.id )
+                console.log(tracks)
+                return Object.assign({}, { tracks: tracks }, {loading: true })
+            }
+            return Object.assign({}, state, {loading: false })
         default:
             return state;
 

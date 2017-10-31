@@ -20,7 +20,7 @@ class SearchArtist extends Component {
     
     handleSubmit(event) {
 
-        const redirect = "/search/results"
+        const redirect = "/results"
 
         event.preventDefault();
         let name = this.state.searchName

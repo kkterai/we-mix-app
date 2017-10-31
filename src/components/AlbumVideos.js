@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import {Table, Column, Cell} from 'fixed-data-table-2';
-import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { connect } from 'react-redux'; 
-import 'video-react/dist/video-react.css'; 
 import { Player } from 'video-react';
+import uuid from 'uuid';
+import { bindActionCreators } from 'redux'; 
 
+import { addVideo } from  '../actions/videoActions';
+
+import 'fixed-data-table-2/dist/fixed-data-table.css';
+import 'video-react/dist/video-react.css'; 
 
 class AlbumVideos extends Component {
 
-render() {
+  handleOnClick() {
+    const video = Object.assign({}, { video_URL: this.props.strMusicVid } , { track_title: this.props.strTrack }, { id: uuid() });
+    this.props.addVideo(video)
+  } 
 
-  const rows = (this.props.tracks) ? this.props.tracks : [];
+  render() {
+
+    const rows = (this.props.tracks) ? this.props.tracks : [];
   
     return (
-
 
       <Table
       rowHeight={250}
@@ -45,6 +53,8 @@ render() {
           header={<Cell>Add Video</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
+            <button onClick={ () => this.handleOnClick() }> Add to My Videos
+            </button>
           </Cell>
           )}
           width={150}
@@ -58,7 +68,13 @@ const mapStateToProps = (state) => {
   return { tracks: state.album.tracks }
 }
 
-export default AlbumVideos = connect(mapStateToProps, null)(AlbumVideos)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addVideo: addVideo
+  }, dispatch);
+};
+
+export default AlbumVideos = connect(mapStateToProps, mapDispatchToProps)(AlbumVideos)
 
 
 // idAlbum : "2115995"
