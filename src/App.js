@@ -6,7 +6,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Home from './components/Home';
 import SearchArtist from './containers/SearchArtist';
 import Albums from './containers/Albums';
-import AlbumVideos from './components/AlbumVideos';
+import AlbumVideos from './containers/AlbumVideos';
 import Navigation from './components/nav/Navigation';
 
 import * as actions from './actions/videoActions';
