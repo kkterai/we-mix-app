@@ -11,9 +11,19 @@ import 'fixed-data-table-2/dist/fixed-data-table.css';
 import 'video-react/dist/video-react.css'; 
 
 class AlbumVideos extends Component {
+  constructor(props) {
+    super();
 
-  handleOnClick() {
-    const video = Object.assign({}, { video_URL: this.props.strMusicVid } , { track_title: this.props.strTrack }, { id: uuid() });
+    this.state = {
+      video_URL: '',
+      track_title: ''
+    }
+  }
+
+  handleOnClick = (event) => {
+    debugger
+    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name }, { uuid: uuid() });
+
     this.props.addVideo(video)
   } 
 
@@ -53,7 +63,7 @@ class AlbumVideos extends Component {
           header={<Cell>Add Video</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
-            <button onClick={ () => this.handleOnClick() }> Add to My Videos
+            <button name={ rows[rowIndex].strTrack } value={ rows[rowIndex].strMusicVid } onClick={ (event) => this.handleOnClick(event) }> Add to My Videos
             </button>
           </Cell>
           )}
