@@ -10,7 +10,7 @@ class AlbumVideos extends Component {
 
 render() {
 
-  const rows = (this.props.artistAlbums.album) ? this.props.artistAlbums.album : [];
+  const rows = (this.props.tracks) ? this.props.tracks : [];
   
     return (
       <Table
@@ -50,7 +50,11 @@ render() {
   }
 }
 
-export default AlbumVideos = connect(null, null)(AlbumVideos)
+const mapStateToProps = (state) => {
+  return { tracks: state.album.tracks }
+}
+
+export default AlbumVideos = connect(mapStateToProps, null)(AlbumVideos)
 
 
 // idAlbum : "2115995"

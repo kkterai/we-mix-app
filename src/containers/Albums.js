@@ -12,7 +12,7 @@ class Albums extends Component {
   handleOnClick(event) {
     let albumId = event.target.alt
     let artistId = event.target.name
-    let redirect = `/search/results/${artistId}`
+    let redirect = '/search/results/videos'
     this.props.searchAlbum(artistId, albumId, this.props.history, redirect)
   } 
 

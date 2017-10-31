@@ -22,15 +22,15 @@ class App extends React.Component {
     }
 
     render() {
-      // need to incorporate nav bar, get rid of search when album found ("search" tab)
+
       return (
         <div className="app">
           <Navigation />
             <Route exact path='/' component={Home}/>
             <Route path='/search' component={SearchArtist} />
             <Switch>
+              <Route path='/search/results/videos' component={AlbumVideos} />
               <Route path='/search/results' component={Albums} />
-              <Route exact path='/search/:id' component={AlbumVideos} />
             </Switch>
         </div>
       );
