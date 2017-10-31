@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Player } from 'video-react';
 import uuid from 'uuid';
 import { bindActionCreators } from 'redux'; 
+import { Form } from 'semantic-ui-react'
 
 import { addVideo } from  '../actions/videoActions';
 
@@ -31,43 +32,56 @@ class AlbumVideos extends Component {
   
     return (
 
-      <Table
-      rowHeight={250}
-      rowsCount={rows.length}
-      width={1500}
-      height={2000}
-      headerHeight={50}>
-      <Column // Track Name 
-          header={<Cell>Track Name</Cell>}
-          cell={({rowIndex, ...props}) => (
-          <Cell {...props}>
-            { rows[rowIndex].strTrack }
-          </Cell>
-          )}
-          width={250}
-      />
-      <Column // Video - React video player seems to only work w/ mp4 format; HTML video, iframe and object do not show a player at all
-          header={<Cell>Video</Cell>}
-          cell={({rowIndex, ...props}) => (
-          <Cell {...props}>
-            <Player>
-              <source src={ rows[rowIndex].strMusicVid } />
-            </Player>
-          </Cell>
-          )}
-          width={400}
-      />
-      <Column // Add Video - create button and action
-          header={<Cell>Add Video</Cell>}
-          cell={({rowIndex, ...props}) => (
-          <Cell {...props}>
-            <button name={ rows[rowIndex].strTrack } value={ rows[rowIndex].strMusicVid } onClick={ (event) => this.handleOnClick(event) }> Add to My Videos
-            </button>
-          </Cell>
-          )}
-          width={150}
-      />
-      </Table>
+      <div> 
+        <p>Don't see what you are looking for? Add a video here:</p>
+
+        <Form>
+          <Form.Group widths='equal'>
+            <Form.Input label='Track Title' placeholder='Track Title' />
+            <Form.Input label='Video URL' placeholder='Video URL' />
+          </Form.Group>
+          <Form.Button>Add to My Videos</Form.Button>
+          <br></br>
+        </Form>
+
+        <Table
+        rowHeight={250}
+        rowsCount={rows.length}
+        width={1500}
+        height={2000}
+        headerHeight={50}>
+        <Column // Track Name 
+            header={<Cell>Track Name</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+              { rows[rowIndex].strTrack }
+            </Cell>
+            )}
+            width={250}
+        />
+        <Column // Video - React video player seems to only work w/ mp4 format; HTML video, iframe and object do not show a player at all
+            header={<Cell>Video</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+              <Player>
+                <source src={ rows[rowIndex].strMusicVid } />
+              </Player>
+            </Cell>
+            )}
+            width={400}
+        />
+        <Column // Add Video - create button and action
+            header={<Cell>Add Video</Cell>}
+            cell={({rowIndex, ...props}) => (
+            <Cell {...props}>
+              <button name={ rows[rowIndex].strTrack } value={ rows[rowIndex].strMusicVid } onClick={ (event) => this.handleOnClick(event) }> Add to My Videos
+              </button>
+            </Cell>
+            )}
+            width={150}
+        />
+        </Table>
+      </div>
     )
   }
 }
