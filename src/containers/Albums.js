@@ -4,6 +4,7 @@ import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux'; 
 import { searchAlbum } from  '../actions/videoActions';
+import ReactImageFallback from "react-image-fallback";
 
 
 class Albums extends Component {
@@ -31,7 +32,15 @@ render() {
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
             <button onClick={ (event) => this.handleOnClick(event) }> 
-              <img name={ rows[rowIndex].idArtist } src={ rows[rowIndex].strAlbumThumb } width="100" height="100" alt={ rows[rowIndex].idAlbum }  />
+              <ReactImageFallback
+                  src={ rows[rowIndex].strAlbumThumb }
+                  name={ rows[rowIndex].idArtist }
+                  fallbackImage="https://i.imgur.com/rIoUsXp.jpg"
+                  initialImage="loader.gif"
+                  alt={ rows[rowIndex].idAlbum } 
+                  className="track-image"
+                  width="100" 
+                  height="100"  />
             </button>
           </Cell>
           )}

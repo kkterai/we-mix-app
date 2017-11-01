@@ -75,14 +75,14 @@ class AlbumVideos extends Component {
             header={<Cell></Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
-            <ReactImageFallback
-              src={ rows[rowIndex].strTrackThumb }
-              fallbackImage="https://i.imgur.com/rIoUsXp.jpg"
-              initialImage="loader.gif"
-              alt={ rows[rowIndex].strMusicVid }
-              className="track-image"
-              width="100" 
-              height="100"  />
+              <ReactImageFallback
+                src={ rows[rowIndex].strTrackThumb }
+                fallbackImage="https://i.imgur.com/rIoUsXp.jpg"
+                initialImage="loader.gif"
+                alt={ rows[rowIndex].strMusicVid }
+                className="track-image"
+                width="100" 
+                height="100"  />
             </Cell>
             )}
             width={150}
