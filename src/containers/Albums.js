@@ -24,8 +24,8 @@ render() {
       <Table
       rowHeight={150}
       rowsCount={rows.length}
-      width={1500}
-      height={2000}
+      width={1150}
+      height={1000}
       headerHeight={50}>
       <Column // Album Cover; Description - find a way to cut length/"show more" to link to show page
           header={<Cell></Cell>}
@@ -44,7 +44,7 @@ render() {
             </button>
           </Cell>
           )}
-          width={130}
+          width={150}
       />
       <Column // Album Name
           header={<Cell>Album Name</Cell>}
@@ -55,7 +55,7 @@ render() {
           )}
           width={250}
       />
-      <Column // Release
+      <Column // Description
           header={<Cell>Description</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
