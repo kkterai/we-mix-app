@@ -12,3 +12,4 @@ export default function userReducer(state = { loading: false, videos: [] }, acti
     }
   };
 
+//replace(/^[^_]*=/,'') for playing user videos
