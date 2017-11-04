@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { searchAlbum } from  '../actions/videoActions';
 import ReactImageFallback from "react-image-fallback";
 
+// Make an 'Add Video' form available if search comes up empty - redirect to AlbumVideos
 
 class Albums extends Component {
   

@@ -41,34 +41,34 @@ export const addVideo = video => {
 }
 
 
-// export function createRoutine(routine, history) {
-//   const routineAttributes = processRoutineForApi(routine);
+// export function addVideo(video, history) {
+//   const videoAttributes = processVideoForApi(video);
 
 //   return(dispatch) => {
 //     const options = requestOptions({
 //       method: 'POST',
 //       body: JSON.stringify({
-//         routine: routineAttributes,
+//         video: videoAttributes,
 //       }),
 //     });
 
-//     dispatch({ type: 'CREATING_ROUTINE' });
+//     dispatch({ type: 'ADD_VIDEO' });
 
-//     return fetch('/api/v1/routines', options)
+//     return fetch('/api/v1/videos', options)
 //       .then(handleErrors)
 //       .then(response => response.json())
-//       .then(routines => {
+//       .then(videos => {
 //         dispatch({
-//           type: 'SUCCESSFULLY_CREATED_ROUTINE',
-//           payload: routines.routine,
+//           type: 'SUCCESSFULLY_CREATED_VIDEO',
+//           payload: videos.video,
 //         })
-//         return routines;
+//         return videos;
 //       })
-//       .then(routines => history.push(`/routines/${routines.routine.id}`))
+//       .then(videos => history.push(`/videos/${videos.video.id}`))
 //       .catch((error) => {
 //         dispatch({
-//           type: 'UNSUCCESSFULLY_CREATED_ROUTINE',
-//           payload: "Your routine could not be created!",
+//           type: 'UNSUCCESSFULLY_CREATED_VIDEO',
+//           payload: "Your video could not be created!",
 //         })
 //       });
 //   }

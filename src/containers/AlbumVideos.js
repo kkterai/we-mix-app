@@ -25,7 +25,6 @@ class AlbumVideos extends Component {
   }
 
   handleOnChange(event) {
-    debugger
     const { value, name } = event.target;
     this.setState({
       [name]: value
@@ -34,7 +33,8 @@ class AlbumVideos extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    const video = Object.assign({}, this.state, { id: uuid() });
+    const video = new Object();
+    video[`${uuid()}`] = Object.assign({}, this.state)
     this.props.addVideo(video);
     this.setState({
       video_URL: '',
@@ -43,7 +43,8 @@ class AlbumVideos extends Component {
   }
 
   handleOnClick(event) {
-    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name }, { uuid: uuid() });
+    const video = new Object();
+    video[`${uuid()}`] = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
     this.props.addVideo(video)
   } 
 

@@ -1,4 +1,4 @@
-export default function userReducer(state = { loading: false, videos: [] }, action) {
+export default function userReducer(state = { loading: false, videosById: {} }, action) {
 
     switch (action.type) {
         case 'LOADING_USER_VIDEOS':
