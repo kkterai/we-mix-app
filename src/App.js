@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Home from './components/Home';
+import AboutPage from './components/about/AboutPage';
 import SearchArtist from './containers/SearchArtist';
 import Albums from './containers/Albums';
 import AlbumVideos from './containers/AlbumVideos';
@@ -26,6 +27,7 @@ class App extends React.Component {
         <div className="app">
           <Navigation />
             <Route exact path='/' component={Home}/>
+            <Route path='/about' component={AboutPage} />
             <Route path='/find_artist' component={SearchArtist} />
             <Switch>
               <Route path='/results/videos' component={AlbumVideos} />

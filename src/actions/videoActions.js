@@ -39,3 +39,37 @@ export const addVideo = video => {
     video: Object.assign({}, video )
   }
 }
+
+
+// export function createRoutine(routine, history) {
+//   const routineAttributes = processRoutineForApi(routine);
+
+//   return(dispatch) => {
+//     const options = requestOptions({
+//       method: 'POST',
+//       body: JSON.stringify({
+//         routine: routineAttributes,
+//       }),
+//     });
+
+//     dispatch({ type: 'CREATING_ROUTINE' });
+
+//     return fetch('/api/v1/routines', options)
+//       .then(handleErrors)
+//       .then(response => response.json())
+//       .then(routines => {
+//         dispatch({
+//           type: 'SUCCESSFULLY_CREATED_ROUTINE',
+//           payload: routines.routine,
+//         })
+//         return routines;
+//       })
+//       .then(routines => history.push(`/routines/${routines.routine.id}`))
+//       .catch((error) => {
+//         dispatch({
+//           type: 'UNSUCCESSFULLY_CREATED_ROUTINE',
+//           payload: "Your routine could not be created!",
+//         })
+//       });
+//   }
+// }

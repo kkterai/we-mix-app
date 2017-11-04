@@ -10,6 +10,9 @@ export default class Navigation extends Component {
             <Link to="/">
                 <Menu.Item name="home">Home</Menu.Item>
             </Link>
+            <Link to="/about">
+                <Menu.Item name="about">About</Menu.Item>
+            </Link>
             <Link to="/find_artist">
                 <Menu.Item name="Search">Search</Menu.Item>
             </Link>
