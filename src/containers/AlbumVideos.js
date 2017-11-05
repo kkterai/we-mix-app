@@ -78,7 +78,6 @@ class AlbumVideos extends Component {
               <ReactImageFallback
                 src={ rows[rowIndex].strTrackThumb }
                 fallbackImage="https://i.imgur.com/rIoUsXp.jpg"
-                initialImage="loader.gif"
                 alt={ rows[rowIndex].strMusicVid }
                 className="track-image"
                 width="100" 

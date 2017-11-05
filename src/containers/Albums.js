@@ -37,7 +37,6 @@ render() {
                   src={ rows[rowIndex].strAlbumThumb }
                   name={ rows[rowIndex].idArtist }
                   fallbackImage="https://i.imgur.com/rIoUsXp.jpg"
-                  initialImage="loader.gif"
                   alt={ rows[rowIndex].idAlbum } 
                   className="track-image"
                   width="100" 

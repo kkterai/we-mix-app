@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube'
 // import { editVideo, deleteVideo } from '../actions/videoActions';
@@ -13,6 +13,8 @@ class VideoCard extends React.Component {
         autoplay: 1
       }
     };
+
+    let video = this.props.video;
 
     return(
     <div>
@@ -29,23 +31,23 @@ class VideoCard extends React.Component {
           onReady={this._onReady}
         />
         <button 
-              {/* onClick={() => editVideo(video)} */}
+              /* onClick={() => editVideo(video)} */
               type="button" 
               className="btn btn-primary"
             >
             Edit
         </button>
         <button 
-              {/* onClick={() => deleteVideo(video)} */}
+              /* onClick={() => deleteVideo(video)} */
               type="button" 
               className="btn btn-primary"
             >
             Delete
         </button>
       </div>
-    </div>;
+    </div>
     );
   }
 }
 
-export default connect(null, null /* { editVideo, deleteVideo } */)(VideoCard);
+export default VideoCard = connect(null, null /* { editVideo, deleteVideo } */)(VideoCard);
