@@ -7,7 +7,7 @@ import * as sessionActions from '../actions/sessionActions';
 class LogInPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {credentials: {email: {something}, password: {something}}}
+    this.state = {credentials: {email: "", password: "" }}
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }

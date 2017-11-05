@@ -17,7 +17,9 @@ export default class Navigation extends Component {
                 <Menu.Item name="Search">Search</Menu.Item>
             </Link>
             <Menu.Menu position='right'>
-                <Menu.Item name='logout'  />
+              <Link to="/login">
+                <Menu.Item name="Logout">Logout</Menu.Item>
+              </Link>
             </Menu.Menu>
         </Menu>
 {/* 

@@ -9,6 +9,7 @@ import SearchArtist from './containers/SearchArtist';
 import Albums from './containers/Albums';
 import AlbumVideos from './containers/AlbumVideos';
 import Navigation from './components/nav/Navigation';
+import LoginPage from './containers/LoginPage';
 
 import * as actions from './actions/videoActions';
 
@@ -29,6 +30,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home}/>
             <Route path='/about' component={AboutPage} />
             <Route path='/find_artist' component={SearchArtist} />
+            <Route path='/login' component={LoginPage} />
             <Switch>
               <Route path='/results/videos' component={AlbumVideos} />
               <Route path='/results' component={Albums} />
