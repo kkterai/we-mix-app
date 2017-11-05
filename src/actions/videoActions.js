@@ -37,43 +37,48 @@ export function searchAlbum(artistId, albumId, history, redirect) {
     };
 }
 
-export const addVideo = video => {
-  return {
-    type: 'ADD_VIDEO',
-    video: Object.assign({}, video )
-  }
-}
-
-
-// export function addVideo(video, history) {
-//   const videoAttributes = processVideoForApi(video);
-
-//   return(dispatch) => {
-//     const options = requestOptions({
-//       method: 'POST',
-//       body: JSON.stringify({
-//         video: videoAttributes,
-//       }),
-//     });
-
-//     dispatch({ type: 'ADD_VIDEO' });
-
-//     return fetch('/api/v1/videos', options)
-//       .then(handleErrors)
-//       .then(response => response.json())
-//       .then(videos => {
-//         dispatch({
-//           type: 'SUCCESSFULLY_CREATED_VIDEO',
-//           payload: videos.video,
-//         })
-//         return videos;
-//       })
-//       .then(videos => history.push(`/videos/${videos.video.id}`))
-//       .catch((error) => {
-//         dispatch({
-//           type: 'UNSUCCESSFULLY_CREATED_VIDEO',
-//           payload: "Your video could not be created!",
-//         })
-//       });
+// export const addVideo = video => {
+//   return {
+//     type: 'ADD_VIDEO',
+//     video: Object.assign({}, video )
 //   }
 // }
+
+export function deleteVideo(id) {
+  return(dispatch) => {
+  
+    dispatch({ type: 'DELETING_VIDEO' });
+
+    return fetch(`/api/v1/videos/${id}`, {
+      method: 'post',
+      headers : new Headers(),
+      body: JSON.stringify(id)
+    }
+  )
+      .then(dispatch({ type: 'DELETE_VIDEO' }))
+      .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
+  };
+}
+
+export const addVideo = (data) => {
+  return dispatch => {
+    return fetch('/api/v1/videos', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ video: data })
+    })
+    .then(response => response.json())
+    .then(video => {
+      dispatch(addVideoSuccess(video));
+    })
+  };
+};
+
+export const addVideoSuccess = (data) => {
+  return {
+    type: 'ADD_VIDEO_SUCCESS',
+    video: data
+  }
+}

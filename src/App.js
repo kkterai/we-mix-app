@@ -17,9 +17,9 @@ import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
 
-    componentDidMount() {
-        this.props.actions.getUserVideos()
-    }
+    // componentDidMount() {
+    //     this.props.actions.getUserVideos()
+    // }
 
     render() {
 
