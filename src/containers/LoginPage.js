@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import TextInput from '../components/common/TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -26,27 +26,29 @@ class LogInPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <TextInput
-            name="email"
-            label="email"
-            value={this.state.credentials.email}
-            onChange={this.onChange}/>
+      <div className="login"> 
+        <div className="login-form">
+          <form>
+            <TextInput
+              name="email"
+              label="email"
+              value={this.state.credentials.email}
+              onChange={this.onChange}/>
 
-          <TextInput
-            name="password"
-            label="password"
-            type="password"
-            value={this.state.credentials.password}
-            onChange={this.onChange}/>
+            <TextInput
+              name="password"
+              label="password"
+              type="password"
+              value={this.state.credentials.password}
+              onChange={this.onChange}/>
 
-          <input
-            type="submit"
-            className="btn btn-primary"
-            onClick={this.onSave}/>
-            {" "}
-        </form>
+            <input
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.onSave}/>
+              {" "}
+          </form>
+        </div>
       </div>
   );
   }
