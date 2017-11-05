@@ -4,7 +4,6 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
         case 'LOADING_USER_VIDEOS':
             return Object.assign({}, state, {loading: true })
         case 'FETCH_USER_VIDEOS':
-            {debugger}
             const videos = action.payload.map ( video => transform(video) )
             return Object.assign({}, { loading: false },{ videosById: videos })
         case 'ADD_VIDEO':
@@ -17,7 +16,7 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
 //replace(/^[^_]*=/,'') for playing user videos
 
 function transform(video) {
-    let o = new Object();
+    let o = {};
     o[video.id] = Object.assign({}, { video_URL: video.video_URL } , { track_title: video.track_title });
     return o;
 }

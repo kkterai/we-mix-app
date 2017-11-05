@@ -2,14 +2,13 @@
   "name": "new-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "es6-promise": "^4.1.1",
     "fixed-data-table-2": "^0.8.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "react-iframe": "^1.0.7",
     "react-image-fallback": "^7.0.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
@@ -19,8 +18,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.74.2",
-    "video-react": "^0.8.9"
+    "semantic-ui-react": "^0.74.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,7 +8,6 @@ import ReactImageFallback from "react-image-fallback";
 import { addVideo } from  '../actions/videoActions';
 
 import 'fixed-data-table-2/dist/fixed-data-table.css';
-import 'video-react/dist/video-react.css'; 
 
 // Your Rails API should handle the data persistence. You should be using fetch() 
 // within your actions to GET and POST data from your API - do not use jQuery methods.
@@ -33,7 +32,7 @@ class AlbumVideos extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    const video = new Object();
+    const video = {};
     video[`${uuid()}`] = Object.assign({}, this.state)
     this.props.addVideo(video);
     this.setState({
@@ -43,7 +42,7 @@ class AlbumVideos extends Component {
   }
 
   handleOnClick(event) {
-    const video = new Object();
+    const video = {};
     video[`${uuid()}`] = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
     this.props.addVideo(video)
   } 
