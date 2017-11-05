@@ -14,7 +14,21 @@ class VideoCard extends React.Component {
       }
     };
 
-    let video = this.props.video;
+    let videoKey = Object.getOwnPropertyNames(this.props.video).toString();
+    let video = this.props.video[videoKey]
+
+    let youTubeVideo;
+    if ( video.youTubeId !== "" ) {
+      youTubeVideo = 
+        <YouTube
+              videoId={ this.props.youTubeId }
+              opts={opts}
+              onReady={this._onReady}
+            />
+    } else {
+      youTubeVideo = <h3>Edit this video to add a YouTube URL </h3>
+    }
+
 
     return(
     <div>
@@ -25,11 +39,7 @@ class VideoCard extends React.Component {
         <div className="card-block">
           { video.artist }
         </div>
-        <YouTube
-          videoId={ this.props.youTubeId }
-          opts={opts}
-          onReady={this._onReady}
-        />
+        { youTubeVideo }
         <button 
               /* onClick={() => editVideo(video)} */
               type="button" 

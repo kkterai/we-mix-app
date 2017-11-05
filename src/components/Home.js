@@ -22,7 +22,6 @@ class Home extends Component {
             videoLibrary = "Loading..."
         }
 
-       
         return (
             <div>
                 <h1>My Video Library</h1>

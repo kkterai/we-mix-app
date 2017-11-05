@@ -21,7 +21,7 @@ function transform(video) {
     } else {
         youTubeId = ""
     }
-    o[video.id] = Object.assign({}, { video_URL: video.video_URL }, { track_title: video.track_title }, { youTubeId: youTubeId});
+    o[video.id] = Object.assign({},{ artist: video.artist }, { video_URL: video.video_URL }, { track_title: video.track_title }, { youTubeId: youTubeId});
     return o;
 }
 
