@@ -13,11 +13,15 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
     }
   };
 
-//replace(/^[^_]*=/,'') for playing user videos
-
 function transform(video) {
     let o = {};
-    o[video.id] = Object.assign({}, { video_URL: video.video_URL } , { track_title: video.track_title });
+    let youTubeId;
+    if (video.video_URL.match(/youtube/)) {
+        youTubeId = video.video_URL.replace(/^[^_]*=/,'')
+    } else {
+        youTubeId = ""
+    }
+    o[video.id] = Object.assign({}, { video_URL: video.video_URL }, { track_title: video.track_title }, { youTubeId: youTubeId});
     return o;
 }
 

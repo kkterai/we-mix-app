@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Home extends Component {
+import * as actions from '../actions/videoActions';
+
+class Home extends Component {
 
     render() {
         return (
             <div>
-                <h1>"this is the home page"</h1>
+                <h1>My Video Library</h1>
+
             </div>
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return { actions: bindActionCreators( actions, dispatch )
+    } 
+  }
+
+  const mapStateToProps = function(state) {
+    return { videos: state.userVideos}
+  }
+  
+  export default Home = connect(mapStateToProps, mapDispatchToProps)(Home);
+  

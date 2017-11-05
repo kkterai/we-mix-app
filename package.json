@@ -8,6 +8,7 @@
     "fixed-data-table-2": "^0.8.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.6.2",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^15.6.2",
     "react-image-fallback": "^7.0.1",
     "react-redux": "^5.0.6",

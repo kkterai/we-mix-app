@@ -11,6 +11,10 @@ export function getUserVideos() {
   };
 }
 
+export function getYouTubeIds(videos) {
+  
+}
+
 export function searchArtist(name, history, redirect) {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
   return (dispatch) => {
