@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import YouTube from 'react-youtube'
 // import { editVideo, deleteVideo } from '../actions/videoActions';
 
-class VideoCard extends React.Component {
+class VideoCard extends Component {
 
   render() {
     const opts = {
-      height: '390',
-      width: '640',
+      height: '300',
+      width: '570',
       playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
+        autoplay: 0
       }
     };
 
@@ -21,7 +21,7 @@ class VideoCard extends React.Component {
     if ( video.youTubeId !== "" ) {
       youTubeVideo = 
         <YouTube
-              videoId={ this.props.youTubeId }
+              videoId={ video.youTubeId }
               opts={opts}
               onReady={this._onReady}
             />
@@ -29,34 +29,39 @@ class VideoCard extends React.Component {
       youTubeVideo = <h3>Edit this video to add a YouTube URL </h3>
     }
 
-
     return(
-    <div>
-      <div className="card card-inverse card-success card-primary mb-3 text-center">
-        <div className="card-block">
-          { video.track_title }
+      <div>
+        <div className="card card-inverse card-success card-primary mb-3 text-center">
+          <div className="card-block">
+            { video.track_title }
+          </div>
+          <div className="card-block">
+            { video.artist }
+          </div>
+          { youTubeVideo }
+          <button 
+                /* onClick={() => editVideo(video)} */
+                type="button" 
+                className="btn btn-primary"
+              >
+              Edit
+          </button>
+          <button 
+                /* onClick={() => deleteVideo(video)} */
+                type="button" 
+                className="btn btn-primary"
+              >
+              Delete
+          </button>
         </div>
-        <div className="card-block">
-          { video.artist }
-        </div>
-        { youTubeVideo }
-        <button 
-              /* onClick={() => editVideo(video)} */
-              type="button" 
-              className="btn btn-primary"
-            >
-            Edit
-        </button>
-        <button 
-              /* onClick={() => deleteVideo(video)} */
-              type="button" 
-              className="btn btn-primary"
-            >
-            Delete
-        </button>
       </div>
-    </div>
-    );
+      );
+  }
+
+
+_onReady(event) {
+  // access to player in all event handlers via event.target
+    event.target.pauseVideo();
   }
 }
 
