@@ -42,8 +42,9 @@ class AlbumVideos extends Component {
   }
 
   handleOnClick(event) {
-    const video = {};
-    video[`${uuid()}`] = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
+    // const video = {};
+    // video[`${uuid()}`] = 
+    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
     this.props.addVideo(video)
   } 
 

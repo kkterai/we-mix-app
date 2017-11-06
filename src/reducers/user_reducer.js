@@ -6,8 +6,11 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
         case 'FETCH_USER_VIDEOS':
             const videos = action.payload.map ( video => transform(video) )
             return Object.assign({}, { loading: false },{ videosById: videos })
-        case 'ADD_VIDEO':
-            return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
+        // case 'ADD_VIDEO':
+        // debugger
+        //     return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
+        case 'DELETE_VIDEO':
+            return {}
         default:
             return state;
     }

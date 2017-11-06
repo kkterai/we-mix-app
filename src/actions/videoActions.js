@@ -1,6 +1,8 @@
+import { requestOptions } from '../utils/session';
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
-require('dotenv').config()
+require('dotenv').config();
 
 export function getUserVideos() {
   return (dispatch) => {
@@ -9,10 +11,6 @@ export function getUserVideos() {
       .then(response => response.json())
       .then(userVideos => dispatch({ type: 'FETCH_USER_VIDEOS', payload: userVideos }));
   };
-}
-
-export function getYouTubeIds(videos) {
-  
 }
 
 export function searchArtist(name, history, redirect) {
@@ -37,13 +35,6 @@ export function searchAlbum(artistId, albumId, history, redirect) {
     };
 }
 
-// export const addVideo = video => {
-//   return {
-//     type: 'ADD_VIDEO',
-//     video: Object.assign({}, video )
-//   }
-// }
-
 export function deleteVideo(id) {
   return(dispatch) => {
   
@@ -60,25 +51,25 @@ export function deleteVideo(id) {
   };
 }
 
-export const addVideo = (data) => {
-  return dispatch => {
-    return fetch('/api/v1/videos', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ video: data })
-    })
-    .then(response => response.json())
-    .then(video => {
-      dispatch(addVideoSuccess(video));
-    })
-  };
-};
+export function addVideo(video) {
+  debugger
+  const request =  requestOptions({
+    method: 'post',
+    body: JSON.stringify({ video: video })
+  });
 
-export const addVideoSuccess = (data) => {
-  return {
-    type: 'ADD_VIDEO_SUCCESS',
-    video: data
+  return(dispatch) => {
+    
+    dispatch({ type: 'ADD_VIDEO' })
+
+  return fetch('/api/v1/videos', request )
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      dispatch({
+        type: 'SUCCESSFULLY_ADDED_VIDEO',
+        payload: data
+      })
+      return data
+    })}
   }
-}
