@@ -7,7 +7,7 @@ export default class Navigation extends Component {
     return (
       <div>
         <Menu inverted tabular >
-            <Link to="/">
+            <Link to="/home">
                 <Menu.Item name="home">Home</Menu.Item>
             </Link>
             <Link to="/about">

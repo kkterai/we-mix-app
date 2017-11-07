@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as sessionActions from '../actions/sessionActions';
 
+// Need to review functions, etc. for redundancy, relevance
+
 class LogInPage extends React.Component {
   constructor(props) {
     super(props);
