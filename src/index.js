@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './reducers';
 import thunk from 'redux-thunk';
-import { BrowserRouter as Router } from 'react-router-dom'
-import { loadState, saveState } from './localStorage';
 import throttle from 'lodash/throttle';
+
+import App from './App'
+import { loadState, saveState } from './localStorage';
+
+import rootReducer from './reducers';
+
+import './index.css';
 
 const persistedState = loadState();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -25,7 +28,7 @@ store.subscribe(throttle(() => {
 ReactDOM.render(
   <Provider store={store} >
     <Router>
-      <App />
+      <Route path='/' component={App} />
     </Router>
   </Provider>, document.getElementById('root')
 )

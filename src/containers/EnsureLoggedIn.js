@@ -1,28 +1,32 @@
-class EnsureLoggedInContainer extends React.Component {
-    componentDidMount() {
-      const { dispatch, currentURL } = this.props
+import React from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+
+// class EnsureLoggedInContainer extends React.Component {
+//     componentDidMount() {
+//       const { dispatch, currentURL } = this.props
   
-      if (!isLoggedIn) {
-        dispatch(setRedirectUrl(currentURL))
-        browserHistory.replace("/login")
-      }
-    }
+//       if (!isLoggedIn) {
+//         dispatch(setRedirectUrl(currentURL))
+//         browserHistory.replace("/login")
+//       }
+//     }
   
-    render() {
-      if (isLoggedIn) {
-        return this.props.children
-      } else {
-        return null
-      }
-    }
-  }
+//     render() {
+//       if (isLoggedIn) {
+//         return this.props.children
+//       } else {
+//         return null
+//       }
+//     }
+//   }
   
-  function mapStateToProps(state, ownProps) {
-    return {
-      isLoggedIn: state.loggedIn,
-      currentURL: ownProps.location.pathname
-    }
-  }
+//   function mapStateToProps(state, ownProps) {
+//     return {
+//       isLoggedIn: state.loggedIn,
+//       currentURL: ownProps.location.pathname
+//     }
+//   }
   
-  export default connect(mapStateToProps)(EnsureLoggedInContainer)
+//   export default connect(mapStateToProps)(EnsureLoggedInContainer)
   
