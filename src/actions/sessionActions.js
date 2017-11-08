@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import auth from '../auth/authenticator';
+import sessionApi from '../api/SessionApi';
 
 // example ref: sbenedetto
 
