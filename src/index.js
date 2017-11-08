@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, browserHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 
-import App from './App'
+import routes from './routes';
 import { loadState, saveState } from './localStorage';
 
 import rootReducer from './reducers';
@@ -27,8 +27,6 @@ store.subscribe(throttle(() => {
 
 ReactDOM.render(
   <Provider store={store} >
-    <Router>
-      <Route path='/' component={App} />
-    </Router>
+    <Router history={browserHistory} routes={routes}/>
   </Provider>, document.getElementById('root')
 )

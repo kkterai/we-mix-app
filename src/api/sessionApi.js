@@ -8,7 +8,6 @@ class SessionApi {
         body: JSON.stringify({auth: credentials})
       });
   
-  
       return fetch(request).then(response => {
         return response.json();
       }).catch(error => {
