@@ -18,7 +18,7 @@ class LogInPage extends React.Component {
       }
 
     this.onChange = this.onChange.bind(this);
-    this.onSave = this.onSave.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event) {

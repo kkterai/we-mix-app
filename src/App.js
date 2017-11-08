@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Navigation from './components/nav/Navigation';
-
 import * as actions from './actions/videoActions';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -26,7 +24,7 @@ class App extends React.Component {
     render() {
       return (
         <div className="app">
-          <Navigation />
+          
         </div>
       );
     }
