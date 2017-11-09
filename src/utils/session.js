@@ -3,11 +3,11 @@ export function headers() {
       'Content-Type': 'application/json',
     }
   
-    // if (localStorage.jwt) {
-    //   Object.assign(headers, {
-    //     'Authorization': `Bearer ${localStorage.jwt}`,
-    //   });
-    // }
+    if (localStorage.jwt) {
+      Object.assign(headers, {
+        'Authorization': `Bearer ${localStorage.jwt}`,
+      });
+    }
   
     return headers;
   }

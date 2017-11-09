@@ -1,9 +1,7 @@
-import * as types from './actionTypes';
-import sessionApi from '../api/SessionApi';
-
+import sessionApi from '../api/sessionApi';
 
 export function loginSuccess() {
-  return { type: type.LOG_IN_SUCCESS }
+  return { type: 'LOG_IN_SUCCESS' }
 }
 
 export function loginUser(credentials) {
@@ -17,7 +15,7 @@ export function loginUser(credentials) {
   };
 }
 
-export function logOutUser() {
-  auth.logOut();
-  return { type: type.LOG_OUT }
-}
+// export function logOutUser() {
+//   Auth.logOut();
+//   return { type: 'LOG_OUT' }
+// }
