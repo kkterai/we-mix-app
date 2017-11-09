@@ -9,7 +9,6 @@ class SessionApi {
       });
   
       return fetch(request).then(response => {
-        debugger
         return response.json();
       }).catch(error => {
         return error;

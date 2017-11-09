@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextInput = ({name, label, onChange, placeholder, value, error, type="text"}) => {
   let wrapperClass = 'form-group';
@@ -20,14 +21,13 @@ const TextInput = ({name, label, onChange, placeholder, value, error, type="text
   );
 };
 
-// TextInput.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   label: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-//   placeholder: PropTypes.string,
-//   value: PropTypes.string,
-//   error: PropTypes.string
-// };
+TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  error: PropTypes.string
+};
 
-// research current solution for validations
 export default TextInput;

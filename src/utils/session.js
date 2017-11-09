@@ -5,18 +5,19 @@ export function headers() {
   
     if (localStorage.jwt) {
       Object.assign(headers, {
-        'Authorization': `Bearer ${localStorage.jwt}`,
+        'Authorization': `Bearer: ${localStorage.jwt}`,
       });
     }
-  
+
     return headers;
-  }
+}
   
-  export function requestOptions(options = {}) {
+export function requestOptions(options = {}) {
     return {...options, headers: headers()};
-  }
+}
   
-//   export function authorize(resource, user) {
-//     return resource.user_id === user.id && !!localStorage.jwt;
-//   }
+// review for utility
+export function authorize(resource, user) {
+    return resource.user_id === user.id && !!localStorage.jwt;
+}
   
