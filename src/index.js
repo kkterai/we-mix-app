@@ -21,7 +21,7 @@ const store = createStore(rootReducer, persistedState, composeEnhancers(
 
 store.subscribe(throttle(() => {
   saveState({
-    videos: store.getState().videos //confirm that this will preserve data, not ui state 
+    user: store.getState().user 
   });
 }, 1000));
 

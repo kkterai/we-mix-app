@@ -1,10 +1,9 @@
 import React from 'react';
 import TextInput from '../components/common/TextInput';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import * as sessionActions from '../actions/sessionActions';
 
-// Need to review functions, etc. for redundancy, relevance
 
 class LogInPage extends React.Component {
   constructor(props) {
@@ -55,7 +54,6 @@ class LogInPage extends React.Component {
               type="submit"
               className="btn btn-primary"
               onClick={this.onSubmit}/>
-              {" "}
           </form>
         </div>
       </div>
