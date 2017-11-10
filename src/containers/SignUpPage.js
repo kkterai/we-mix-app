@@ -2,15 +2,16 @@ import React from 'react';
 import TextInput from '../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as sessionActions from '../actions/sessionActions';
+import * as userActions from '../actions/userActions';
 
 
-class LogInPage extends React.Component {
+class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      credentials: 
+      user: 
         {
+          username: "",
           email: "", 
           password: "" 
         }
@@ -22,14 +23,14 @@ class LogInPage extends React.Component {
 
   onChange(event) {
     const field = event.target.name;
-    const credentials = this.state.credentials;
-    credentials[field] = event.target.value;
-    return this.setState({credentials: credentials});
+    const user = this.state.user;
+    user[field] = event.target.value;
+    return this.setState({user: user});
   }
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.actions.loginUser(this.state.credentials);
+    this.props.actions.signUpUser(this.state.user);
   }
 
   render() {
@@ -38,16 +39,22 @@ class LogInPage extends React.Component {
         <div className="login-form">
           <form>
             <TextInput
+              name="username"
+              label="username"
+              value={this.state.user.username}
+              onChange={this.onChange}/>
+
+            <TextInput
               name="email"
               label="email"
-              value={this.state.credentials.email}
+              value={this.state.user.email}
               onChange={this.onChange}/>
 
             <TextInput
               name="password"
               label="password"
               type="password"
-              value={this.state.credentials.password}
+              value={this.state.user.password}
               onChange={this.onChange}/>
 
             <input
@@ -63,7 +70,7 @@ class LogInPage extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(sessionActions, dispatch)
+    actions: bindActionCreators(userActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(LogInPage);
+export default connect(null, mapDispatchToProps)(SignUpPage);
