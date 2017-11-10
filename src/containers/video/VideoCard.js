@@ -43,7 +43,7 @@ class VideoCard extends Component {
           </div>
           { youTubeVideo }
           <button 
-                /* onClick={() => editVideo(video)} */
+                onClick={() => editVideo(video)}
                 type="button" 
                 className="btn btn-primary"
               >

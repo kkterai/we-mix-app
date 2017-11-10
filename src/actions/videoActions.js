@@ -40,22 +40,6 @@ export function getUserVideos() {
   };
 }
 
-export function deleteVideo(video) {
-  const id = video.id
-
-  const request =  requestOptions({
-    method: 'DELETE',
-    body: JSON.stringify({ id: id })
-  });
-
-  return(dispatch) => {
-    return fetch(`/api/v1/videos/${id}`, request)
-      .then(response => response.json())
-      .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
-      .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
-  };
-}
-
 export function addVideo(video) {
   const request =  requestOptions({
     method: 'POST',
@@ -75,3 +59,36 @@ export function addVideo(video) {
         return data
       })}
   }
+
+  export function editVideo(video) {
+    const id = video.id
+  
+    const request =  requestOptions({
+      method: 'PATCH',
+      body: JSON.stringify({ id: id })
+    });
+  
+    return(dispatch) => {
+      return fetch(`/api/v1/videos/${id}`, request)
+        .then(response => response.json())
+        .then(dispatch({ type: 'EDIT_VIDEO', id: id }))
+        .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_EDIT' })})
+    };
+  }
+
+export function deleteVideo(video) {
+  const id = video.id
+
+  const request =  requestOptions({
+    method: 'DELETE',
+    body: JSON.stringify({ id: id })
+  });
+
+  return(dispatch) => {
+    return fetch(`/api/v1/videos/${id}`, request)
+      .then(response => response.json())
+      .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
+      .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
+  };
+}
+
