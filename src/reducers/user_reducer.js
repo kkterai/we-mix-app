@@ -8,11 +8,10 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
             return Object.assign({}, { loading: false },{ videosById: videos })
         case 'ADD_VIDEO':
             return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
-        case 'DELETE_VIDEO': {
+        case 'DELETE_VIDEO':
             debugger 
-            const videos = state.videosById.filter(video => video.id !== action.id);
-            return Object.assign({}, { loading: false },{ videosById: videos })
-        }
+            const vids = state.videosById.filter(video => video.id !== action.id);
+            return Object.assign({}, { loading: false },{ videosById: vids })
         default:
             return state;
     }

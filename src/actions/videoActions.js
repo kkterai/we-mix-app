@@ -78,36 +78,17 @@ export function addVideo(video) {
   }
 
 export function deleteVideo(video) {
-  const id = video.id
-  debugger
-  axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
-    authorization: `${localStorage.token}`,
-    body: `${id}`
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    const id = video.id
 
+    // return(dispatch) => {
+    //   dispatch({ type: 'DELETE_VIDEO' })} - Does not go to reducer/stops delete when uncommented out
 
-// export function deleteVideo(video) {
-//   const id = video.id
-//   debugger
-//   const request =  requestOptions({
-//     method: 'DELETE',
-//     body: JSON.stringify({ id: id })
-//   });
-
-//   return(dispatch) => {
-//     debugger
-//     return fetch(`/api/v1/videos/${id}`, request)
-//       .then(response => { debugger
-//        return response.json() } )
-//       .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
-//       .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
-//   };
-// }
-
+    axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
+      authorization: `${localStorage.token}`,
+      body: `${id}`
+    })
+    .then(response => console.log(response))
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
