@@ -23,8 +23,6 @@ return response.json()
     });
 }
 
-export default {
-
     get(url, params = {}) {
     return fetch(`${url}`, {
         method: 'GET', 

@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 
 export default class Navigation extends Component {
+
+  handleLogout = event => {
+    event.preventDefault();
+    this.props.logout(this.props.history);
+  }
+
   render() {
     return (
       <div>
@@ -17,7 +23,7 @@ export default class Navigation extends Component {
                 <Menu.Item name="Search">Search</Menu.Item>
             </Link>
             <Menu.Menu position='right'>
-              <Link to="/login">
+              <Link onClick={this.handleLogout} to="/login">
                 <Menu.Item name="Logout">Logout</Menu.Item>
               </Link>
             </Menu.Menu>

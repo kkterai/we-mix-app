@@ -8,7 +8,8 @@ export function loginSuccess() {
 export function loginUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
-      localStorage.setItem('jwt', response.jwt);
+      console.log(response)
+      localStorage.setItem('jwt', response.token);
       dispatch(loginSuccess());
     }).catch(error => {
       throw(error);

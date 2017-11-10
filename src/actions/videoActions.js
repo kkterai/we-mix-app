@@ -4,10 +4,24 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 require('dotenv').config();
 
+export const headers = () => {
+  
+  const token = localStorage.getItem('jwt');
+
+  return {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': `${token}`,
+  }
+}
+
 export function getUserVideos() {
   return (dispatch) => {
     dispatch({ type: 'LOAD_USER_VIDEOS' });
-    return fetch('/api/v1/videos')
+    return fetch('/api/v1/videos', {
+      method: 'GET', 
+      headers: headers()
+  })
       .then(response => response.json())
       .then(userVideos => dispatch({ type: 'FETCH_USER_VIDEOS', payload: userVideos }));
   };
