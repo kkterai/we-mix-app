@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import VideoCard from '../containers/VideoCard';
+import VideoCard from '../containers/video/VideoCard';
 
 import * as actions from '../actions/videoActions';
 

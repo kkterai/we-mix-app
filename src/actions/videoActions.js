@@ -4,28 +4,6 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 require('dotenv').config();
 
-export const headers = () => {
-  
-  const token = localStorage.getItem('jwt');
-
-  return {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization': `${token}`,
-  }
-}
-
-export function getUserVideos() {
-  return (dispatch) => {
-    dispatch({ type: 'LOAD_USER_VIDEOS' });
-    return fetch('/api/v1/videos', {
-      method: 'GET', 
-      headers: headers()
-  })
-      .then(response => response.json())
-      .then(userVideos => dispatch({ type: 'FETCH_USER_VIDEOS', payload: userVideos }));
-  };
-}
 
 export function searchArtist(name, history, redirect) {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
@@ -49,41 +27,51 @@ export function searchAlbum(artistId, albumId, history, redirect) {
     };
 }
 
-export function deleteVideo(id) {
-  return(dispatch) => {
-  
-    dispatch({ type: 'DELETING_VIDEO' });
+export function getUserVideos() {
+  const request =  requestOptions({
+    method: 'GET'
+  });
 
-    return fetch(`/api/v1/videos/${id}`, {
-      method: 'post',
-      headers : new Headers(),
-      body: JSON.stringify(id)
-    }
-  )
-      .then(dispatch({ type: 'DELETE_VIDEO' }))
+  return (dispatch) => {
+    dispatch({ type: 'LOAD_USER_VIDEOS' });
+    return fetch('/api/v1/videos', request)
+      .then(response => response.json())
+      .then(userVideos => dispatch({ type: 'FETCH_USER_VIDEOS', payload: userVideos }));
+  };
+}
+
+export function deleteVideo(video) {
+  const id = video.id
+
+  const request =  requestOptions({
+    method: 'DELETE',
+    body: JSON.stringify({ id: id })
+  });
+
+  return(dispatch) => {
+    return fetch(`/api/v1/videos/${id}`, request)
+      .then(response => response.json())
+      .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
       .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
   };
 }
 
 export function addVideo(video) {
-  debugger
   const request =  requestOptions({
-    method: 'post',
+    method: 'POST',
     body: JSON.stringify({ video: video })
   });
 
   return(dispatch) => {
-    
     dispatch({ type: 'ADD_VIDEO' })
 
-  return fetch('/api/v1/videos', request )
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      dispatch({
-        type: 'SUCCESSFULLY_ADDED_VIDEO',
-        payload: data
-      })
-      return data
-    })}
+    return fetch('/api/v1/videos', request )
+      .then(response => response.json())
+      .then(data => {
+        dispatch({
+          type: 'SUCCESSFULLY_ADDED_VIDEO',
+          payload: data
+        })
+        return data
+      })}
   }

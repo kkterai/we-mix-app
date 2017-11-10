@@ -9,7 +9,7 @@ export function loginUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
       console.log(response)
-      localStorage.setItem('jwt', response.token);
+      localStorage.setItem('token', response.token);
       dispatch(loginSuccess());
     }).catch(error => {
       throw(error);

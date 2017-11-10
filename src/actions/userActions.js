@@ -7,7 +7,7 @@ export function signUpSuccess() {
 export function signUpUser(user) {
   return function(dispatch) {
     return userApi.signup(user).then(response => {
-      localStorage.setItem('jwt', response.token);
+      localStorage.setItem('token', response.token);
       dispatch(signUpSuccess());
     }).catch(error => {
       throw(error);

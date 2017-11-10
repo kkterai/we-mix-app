@@ -6,11 +6,13 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
         case 'FETCH_USER_VIDEOS':
             const videos = action.payload.map ( video => transform(video) )
             return Object.assign({}, { loading: false },{ videosById: videos })
-        // case 'ADD_VIDEO':
-        // debugger
-        //     return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
-        case 'DELETE_VIDEO':
-            return {}
+        case 'ADD_VIDEO':
+            return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
+        case 'DELETE_VIDEO': {
+            debugger 
+            const videos = state.videosById.filter(video => video.id !== action.id);
+            return Object.assign({}, { loading: false },{ videosById: videos })
+        }
         default:
             return state;
     }
@@ -24,7 +26,7 @@ function transform(video) {
     } else {
         youTubeId = ""
     }
-    o[video.id] = Object.assign({},{ artist: video.artist }, { video_URL: video.video_URL }, { track_title: video.track_title }, { youTubeId: youTubeId});
+    o[video.id] = Object.assign({},{id: video.id }, { artist: video.artist }, { video_URL: video.video_URL }, { track_title: video.track_title }, { youTubeId: youTubeId});
     return o;
 }
 

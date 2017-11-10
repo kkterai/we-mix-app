@@ -2,7 +2,7 @@ import React from 'react';
 
 class Auth {
   static loggedIn() {
-    return !!localStorage.jwt;
+    return !!localStorage.token;
   }
 
   static logOut() {

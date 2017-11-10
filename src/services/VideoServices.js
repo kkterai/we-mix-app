@@ -3,12 +3,12 @@ import session from '../utils/session';
 
 export const headers = () => {
     
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem('token');
   
     return {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer: ${token}`,
+      'Authorization': `${token}`,
     }
   }
   

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube'
-// import { editVideo, deleteVideo } from '../actions/videoActions';
+import { editVideo, deleteVideo } from '../../actions/videoActions';
 import './video.css'
 
 class VideoCard extends Component {
+
+  //need a lifecycle method
 
   render() {
     const opts = {
@@ -48,7 +50,7 @@ class VideoCard extends Component {
               Edit
           </button>
           <button 
-                /* onClick={() => deleteVideo(video)} */
+                onClick={() => deleteVideo(video)}
                 type="button" 
                 className="btn btn-primary"
               >

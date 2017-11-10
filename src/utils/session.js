@@ -3,9 +3,9 @@ export function headers() {
       'Content-Type': 'application/json',
     }
   
-    if (localStorage.jwt) {
+    if (localStorage.token) {
       Object.assign(headers, {
-        'Authorization': `Bearer: ${localStorage.jwt}`,
+        'Authorization': `${localStorage.token}`,
       });
     }
 
@@ -18,6 +18,6 @@ export function requestOptions(options = {}) {
   
 // review for utility
 export function authorize(resource, user) {
-    return resource.user_id === user.id && !!localStorage.jwt;
+    return resource.user_id === user.id && !!localStorage.token;
 }
   
