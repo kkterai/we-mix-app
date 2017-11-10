@@ -10,6 +10,8 @@ import SearchArtist from './containers/SearchArtist';
 import Albums from './containers/Albums';
 import AlbumVideos from './containers/AlbumVideos';
 import LoginPage from './containers/LoginPage';
+import SignUpPage from './containers/SignUpPage';
+
 
 export default ( 
     <div>
@@ -17,7 +19,7 @@ export default (
         <Route exact path='/' component={App} />
             <Route path='/about' component={AboutPage} />
             <Route path='/login' component={LoginPage} />
-            
+            <Route path='/signup' component={SignUpPage} />
             <Route path='/home' component={Home}/>
             <Route path='/find_artist' component={SearchArtist} />
                 <Switch>

@@ -35,8 +35,8 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <div className="login"> 
-        <div className="login-form">
+      <div className="signup"> 
+        <div className="signup-form">
           <form>
             <TextInput
               name="username"
