@@ -1,4 +1,5 @@
 import { requestOptions } from '../utils/session';
+import axios from 'axios';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -78,17 +79,35 @@ export function addVideo(video) {
 
 export function deleteVideo(video) {
   const id = video.id
-
-  const request =  requestOptions({
-    method: 'DELETE',
-    body: JSON.stringify({ id: id })
+  debugger
+  axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
+    authorization: `${localStorage.token}`,
+    body: `${id}`
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
   });
-
-  return(dispatch) => {
-    return fetch(`/api/v1/videos/${id}`, request)
-      .then(response => response.json())
-      .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
-      .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
-  };
 }
+
+
+// export function deleteVideo(video) {
+//   const id = video.id
+//   debugger
+//   const request =  requestOptions({
+//     method: 'DELETE',
+//     body: JSON.stringify({ id: id })
+//   });
+
+//   return(dispatch) => {
+//     debugger
+//     return fetch(`/api/v1/videos/${id}`, request)
+//       .then(response => { debugger
+//        return response.json() } )
+//       .then(dispatch({ type: 'DELETE_VIDEO', id: id }))
+//       .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_DELETE' })})
+//   };
+// }
 
