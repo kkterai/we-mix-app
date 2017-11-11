@@ -28,8 +28,6 @@ export default class EditForm extends React.Component {
   onSubmit(event) {
     event.preventDefault();
 
-    debugger
-
     this.props.editVideo(this.state)
     this.setState(
         this.state = {
@@ -40,11 +38,6 @@ export default class EditForm extends React.Component {
         }
     )
   }
-
-//   const video = {}
-//   let vidID = this.props.video[0]
-//   const { video_URL, track_title, artist, id } = this.props.video[`${vidID}`]
-//   debugger
 
   render() {
     return (
