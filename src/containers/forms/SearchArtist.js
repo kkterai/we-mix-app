@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
-import * as actions from '../actions/videoActions';
+import * as actions from '../../actions/videoActions';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
 

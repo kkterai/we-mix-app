@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube'
+
 import { editVideo, deleteVideo } from '../../actions/videoActions';
+import ToggleableEditForm from './ToggleableEditForm'
+
 import './video.css'
+
 
 class VideoCard extends Component {
   constructor(props) {
-  super(props)
-     this.state = {
-        edit: false
-     };
+    super(props);
+ 
+    this.state = {
+      toggle: false
+    };
+
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
   //need a lifecycle method to load videos after delete/add videos
-
+    
   toggleEdit() { 
-    let edit = (this.state.edit === false) ? true : false
+    const boolean = (this.state.toggle === false) ? true : false;
     this.setState({
-      edit: edit
-    });
+      toggle: boolean
+    })
   }
-
 
   render() {
     const opts = {
@@ -57,7 +63,7 @@ class VideoCard extends Component {
           </div>
           { youTubeVideo }
           <button 
-                onClick={() => toggleEdit()}
+                onClick={() => this.toggleEdit()}
                 type="button" 
                 className="btn btn-primary"
               >
@@ -70,7 +76,9 @@ class VideoCard extends Component {
               >
               Delete
           </button>
-          <EditForm edit={this.state.edit} />
+          <div>
+            <ToggleableEditForm isOpen={ this.state.toggle }/>
+          </div>
         </div>
       </div>
       );

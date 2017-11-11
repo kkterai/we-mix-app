@@ -1,53 +1,57 @@
 import React from 'react';
-import TextInput from '../components/common/TextInput';
+import TextInput from '../../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as sessionActions from '../actions/sessionActions';
+import * as userActions from '../../actions/userActions';
 
 
-class LogInPage extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      credentials: 
-        {
-          email: "", 
-          password: "" 
-        }
-      }
+        video_URL: "", 
+        track_title: "",
+        artist: ""
+    }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event) {
-    const field = event.target.name;
-    const credentials = this.state.credentials;
-    credentials[field] = event.target.value;
-    return this.setState({credentials: credentials});
+    let field = event.target.name;
+    field = event.target.value;
   }
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.actions.loginUser(this.state.credentials);
+    this.props.actions.editVideo(this.state)
   }
 
   render() {
     return (
-      <div className="login"> 
-        <div className="login-form">
+      <div className="edit"> 
+        <div className="edit-form">
           <form>
             <TextInput
-              name="email"
-              label="email"
-              value={this.state.credentials.email}
+              name="video_URL"
+              label="video_URL"
+              type="text"
+              value={this.state.video_URL}
               onChange={this.onChange}/>
 
             <TextInput
-              name="password"
-              label="password"
-              type="password"
-              value={this.state.credentials.password}
+              name="track_title"
+              label="track_title"
+              type="text"
+              value={this.state.track_title}
+              onChange={this.onChange}/>
+
+            <TextInput
+              name="artist"
+              label="artist"
+              type="text"
+              value={this.state.artist}
               onChange={this.onChange}/>
 
             <input
@@ -57,13 +61,14 @@ class LogInPage extends React.Component {
           </form>
         </div>
       </div>
-  );
+    );
+    }
   }
-}
+
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(sessionActions, dispatch)
+    actions: bindActionCreators(userActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(LogInPage);
+export default connect(null, mapDispatchToProps)(EditForm);

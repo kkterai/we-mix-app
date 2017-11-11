@@ -6,11 +6,11 @@ import App from './App';
 import Home from './components/Home';
 import AboutPage from './components/about/AboutPage';
 
-import SearchArtist from './containers/SearchArtist';
+import SearchArtist from './containers/forms/SearchArtist';
 import Albums from './containers/Albums';
 import AlbumVideos from './containers/AlbumVideos';
-import LoginPage from './containers/LoginPage';
-import SignUpPage from './containers/SignUpPage';
+import LoginPage from './containers/forms/LoginPage';
+import SignUpPage from './containers/forms/SignUpPage';
 
 
 export default ( 
