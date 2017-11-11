@@ -79,7 +79,7 @@ class VideoCard extends Component {
               Delete
           </button>
           <div>
-            <ToggleableEditForm isOpen={ this.state.toggle } videoId={ video.id } editVideo={ this.props.editVideo }/>
+            <ToggleableEditForm isOpen={ this.state.toggle } video={ video } editVideo={ this.props.editVideo }/>
           </div>
         </div>
       </div>

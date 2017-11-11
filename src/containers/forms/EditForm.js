@@ -5,10 +5,13 @@ import TextInput from '../../components/common/TextInput';
 export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
+    const video = this.props.video
+
     this.state = {
-        video_URL: "", 
-        track_title: "",
-        artist: ""
+        video_URL: video.video_URL, 
+        track_title: video.track_title,
+        artist: video.artist,
+        id: video.id
     }
 
     this.onChange = this.onChange.bind(this);
@@ -18,21 +21,30 @@ export default class EditForm extends React.Component {
   onChange(event) {
     var change = {}
     change[event.target.name] = event.target.value
-    change["id"] = this.props.videoId
+    debugger
     this.setState(change)
   }
 
   onSubmit(event) {
     event.preventDefault();
+
+    debugger
+
     this.props.editVideo(this.state)
     this.setState(
         this.state = {
             video_URL: "", 
             track_title: "",
-            artist: ""
+            artist: "",
+            id: ""
         }
     )
   }
+
+//   const video = {}
+//   let vidID = this.props.video[0]
+//   const { video_URL, track_title, artist, id } = this.props.video[`${vidID}`]
+//   debugger
 
   render() {
     return (
