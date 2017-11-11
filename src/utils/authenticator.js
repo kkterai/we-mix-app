@@ -1,13 +1,9 @@
 import React from 'react';
 
-class Auth {
-  static loggedIn() {
+export function loggedIn() {
     return !!localStorage.token;
   }
 
-  static logOut() {
+export function logOut() {
     localStorage.clear();
   }
-}
-
-export default Auth;

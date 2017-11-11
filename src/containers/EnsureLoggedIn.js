@@ -1,32 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { loggedIn } from '../utils/authenticator';
+import {withRouter} from "react-router-dom";
 
-// class EnsureLoggedInContainer extends React.Component {
-//     componentDidMount() {
-//       const { dispatch, currentURL } = this.props
+class EnsureLoggedInContainer extends React.Component {
+    componentDidMount() {
+      if (!loggedIn() ) {
+        this.props.history.push("/login")
+      }
+    }
   
-//       if (!isLoggedIn) {
-//         dispatch(setRedirectUrl(currentURL))
-//         browserHistory.replace("/login")
-//       }
-//     }
+    render() {
+      if (loggedIn()) {
+        return this.props.children
+      } else {
+        return null
+      }
+    }
+  }
+
+  export default withRouter(EnsureLoggedInContainer);
   
-//     render() {
-//       if (isLoggedIn) {
-//         return this.props.children
-//       } else {
-//         return null
-//       }
-//     }
-//   }
-  
-//   function mapStateToProps(state, ownProps) {
-//     return {
-//       isLoggedIn: state.loggedIn,
-//       currentURL: ownProps.location.pathname
-//     }
-//   }
-  
-//   export default connect(mapStateToProps)(EnsureLoggedInContainer)
   
