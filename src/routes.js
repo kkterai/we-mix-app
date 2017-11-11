@@ -16,10 +16,12 @@ import SignUpPage from './containers/forms/SignUpPage';
 export default ( 
     <div>
     <Navigation />
-        <Route path='/' component={App} />
-        <Route path='/login' component={LoginPage} />
-        <Route path='/signup' component={SignUpPage} />
-        <Route path='/about' component={AboutPage} />
+        <Route exact path='/' component={App} />
+        <Switch>
+            <Route path='/login' component={LoginPage} />
+            <Route path='/signup' component={SignUpPage} />
+            <Route path='/about' component={AboutPage} />
+        </Switch>
             <EnsureLoggedIn>
             <Route path='/home' component={Home}/>
             <Route path='/find_artist' component={SearchArtist} />

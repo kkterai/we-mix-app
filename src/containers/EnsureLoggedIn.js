@@ -1,6 +1,6 @@
 import React from 'react';
 import { loggedIn } from '../utils/authenticator';
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class EnsureLoggedInContainer extends React.Component {
     componentDidMount() {
