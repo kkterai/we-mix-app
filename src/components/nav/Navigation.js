@@ -32,3 +32,7 @@ export default class Navigation extends Component {
               </Link>
             </Menu.Menu>
         </Menu>
+      </div>
+    )
+  }
+}
