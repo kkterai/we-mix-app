@@ -5,8 +5,22 @@ import { editVideo, deleteVideo } from '../../actions/videoActions';
 import './video.css'
 
 class VideoCard extends Component {
+  constructor(props) {
+  super(props)
+     this.state = {
+        edit: false
+     };
+  }
 
-  //need a lifecycle method
+  //need a lifecycle method to load videos after delete/add videos
+
+  toggleEdit() { 
+    let edit = (this.state.edit === false) ? true : false
+    this.setState({
+      edit: edit
+    });
+  }
+
 
   render() {
     const opts = {
@@ -43,7 +57,7 @@ class VideoCard extends Component {
           </div>
           { youTubeVideo }
           <button 
-                onClick={() => editVideo(video)}
+                onClick={() => toggleEdit()}
                 type="button" 
                 className="btn btn-primary"
               >
@@ -56,6 +70,7 @@ class VideoCard extends Component {
               >
               Delete
           </button>
+          <EditForm edit={this.state.edit} />
         </div>
       </div>
       );

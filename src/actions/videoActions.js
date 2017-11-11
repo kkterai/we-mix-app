@@ -61,6 +61,23 @@ export function addVideo(video) {
       })}
   }
 
+  export function deleteVideo(video) {
+    const id = video.id
+
+    // return (dispatch) => {
+    //   dispatch({ type: 'DELETE_VIDEO' }) - deleteVideo function breaks when this is not commented out
+    // }
+
+    axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
+      authorization: `${localStorage.token}`,
+      body: `${id}`
+    })
+    .then(response => console.log(response))
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+  
   export function editVideo(video) {
     const id = video.id
   
@@ -77,18 +94,3 @@ export function addVideo(video) {
     };
   }
 
-export function deleteVideo(video) {
-    const id = video.id
-
-    // return(dispatch) => {
-    //   dispatch({ type: 'DELETE_VIDEO' })} - Does not go to reducer/stops delete when uncommented out
-
-    axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
-      authorization: `${localStorage.token}`,
-      body: `${id}`
-    })
-    .then(response => console.log(response))
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
