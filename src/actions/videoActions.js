@@ -85,7 +85,7 @@ export function editVideo(video) {
 
   axios.patch(`http://localhost:3001/api/v1/videos/${id}`, video, {
       authorization: `${localStorage.token}`,
-      body: video
+      body: `${video}`
     })
     .then(response => console.log(response))
     .catch(function (error) {

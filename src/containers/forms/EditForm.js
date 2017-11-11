@@ -1,33 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TextInput from '../../components/common/TextInput';
 
 
 export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
-    const video = this.props.video
 
     this.state = {
-        video_URL: video.video_URL, 
-        track_title: video.track_title,
-        artist: video.artist,
-        id: video.id
+        video_URL: "", 
+        track_title: "",
+        artist: "",
+        id: ""
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange(event) {
-    var change = {}
+  onChange(event,video) {
+    let { id, artist, video_URL, track_title } = this.props.video;
+    var change = {
+        id: id,
+        artist: artist,
+        video_URL: video_URL,
+        track_title: track_title
+    }
+
+    let eventName = event.target.name
+    let eventValue = event.target.value
+    if (eventName === change[eventName] && eventValue !== change[eventValue]) {
+        change[eventName] = eventValue
+    }
     change[event.target.name] = event.target.value
-    debugger
     this.setState(change)
   }
 
   onSubmit(event) {
+    debugger
     event.preventDefault();
-
+    
     this.props.editVideo(this.state)
     this.setState(
         this.state = {
@@ -40,6 +51,8 @@ export default class EditForm extends React.Component {
   }
 
   render() {
+    let { artist, video_URL, track_title } = this.props.video;
+
     return (
       <div className="edit"> 
         <div className="edit-form">
@@ -48,7 +61,7 @@ export default class EditForm extends React.Component {
               name="video_URL"
               label="YouTube URL"
               type="text"
-              placeholder={this.state.video_URL}
+              placeholder={video_URL}
               value={this.state.video_URL}
               onChange={this.onChange}/>
 
@@ -56,7 +69,7 @@ export default class EditForm extends React.Component {
               name="track_title"
               label="Track Title"
               type="text"
-              placeholder={this.state.track_title}
+              placeholder={track_title}
               value={this.state.track_title}
               onChange={this.onChange}/>
 
@@ -64,7 +77,7 @@ export default class EditForm extends React.Component {
               name="artist"
               label="Artist"
               type="text"
-              placeholder={this.state.artist}
+              placeholder={artist}
               value={this.state.artist}
               onChange={this.onChange}/>
 
