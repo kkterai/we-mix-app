@@ -16,7 +16,6 @@ export default class EditForm extends React.Component {
   }
 
   onChange(event) {
-      debugger
     var change = {}
     change[event.target.name] = event.target.value
     change["id"] = this.props.videoId
@@ -25,7 +24,6 @@ export default class EditForm extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    debugger
     this.props.editVideo(this.state)
     this.setState(
         this.state = {
@@ -68,7 +66,7 @@ export default class EditForm extends React.Component {
             <input
               type="submit"
               className="btn btn-primary"
-              onSubmit={this.onSubmit}/>
+              onClick={this.onSubmit}/>
           </form>
         </div>
       </div>

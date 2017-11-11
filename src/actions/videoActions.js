@@ -62,6 +62,7 @@ export function addVideo(video) {
   }
 
   export function deleteVideo(video) {
+    debugger
     const id = video.id
 
     // return (dispatch) => {
@@ -77,21 +78,17 @@ export function addVideo(video) {
       console.log(error);
     });
 }
-  
-  export function editVideo(video) {
-    debugger
-    const id = video.id
-  
-    const request =  requestOptions({
-      method: 'PATCH',
-      body: JSON.stringify({ id: id })
-    });
-  
-    return(dispatch) => {
-      return fetch(`/api/v1/videos/${id}`, request)
-        .then(response => response.json())
-        .then(dispatch({ type: 'EDIT_VIDEO', id: id }))
-        .catch((error) => { dispatch({ type: 'UNSUCCESSFUL_EDIT' })})
-    };
-  }
 
+export function editVideo(video) {
+  debugger
+  const id = video.id
+
+  axios.patch(`http://localhost:3001/api/v1/videos/${id}`, video, {
+      authorization: `${localStorage.token}`,
+      body: video
+    })
+    .then(response => console.log(response))
+    .catch(function (error) {
+      console.log(error);
+    });
+  }

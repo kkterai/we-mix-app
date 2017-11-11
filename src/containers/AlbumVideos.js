@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Column, Cell } from 'fixed-data-table-2';
 import { connect } from 'react-redux'; 
-import uuid from 'uuid';
 import { bindActionCreators } from 'redux'; 
 import ReactImageFallback from "react-image-fallback";
 
@@ -32,9 +31,8 @@ class AlbumVideos extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    const video = {};
-    video[`${uuid()}`] = Object.assign({}, this.state)
-    this.props.addVideo(video);
+    
+    this.props.addVideo(this.state);
     this.setState({
       video_URL: '',
       track_title: ''
@@ -42,8 +40,6 @@ class AlbumVideos extends Component {
   }
 
   handleOnClick(event) {
-    // const video = {};
-    // video[`${uuid()}`] = 
     const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
     this.props.addVideo(video)
   } 
