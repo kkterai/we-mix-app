@@ -79,6 +79,7 @@ export function addVideo(video) {
 }
   
   export function editVideo(video) {
+    debugger
     const id = video.id
   
     const request =  requestOptions({

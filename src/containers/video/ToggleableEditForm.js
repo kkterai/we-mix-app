@@ -6,7 +6,7 @@ export default class ToggleableEditForm extends React.Component {
     render() {
     if (this.props.isOpen) { 
         return (
-            <EditForm /> );
+            <EditForm videoId={ this.props.videoId } editVideo={ this.props.editVideo }/> );
     } else { 
         return (
             <div >

@@ -31,7 +31,6 @@ class SearchArtist extends Component {
     }
 
     render() {
-
         return(
             <div>
                 <Form onSubmit={(event) => this.handleSubmit(event)}>

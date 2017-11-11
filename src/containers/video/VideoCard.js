@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import YouTube from 'react-youtube'
+import YouTube from 'react-youtube';
+import { bindActionCreators } from 'redux'; 
 
-import { editVideo, deleteVideo } from '../../actions/videoActions';
+import { deleteVideo, editVideo } from '../../actions/videoActions';
 import ToggleableEditForm from './ToggleableEditForm'
 
 import './video.css'
@@ -29,6 +30,7 @@ class VideoCard extends Component {
   }
 
   render() {
+
     const opts = {
       height: '300',
       width: '570',
@@ -77,7 +79,7 @@ class VideoCard extends Component {
               Delete
           </button>
           <div>
-            <ToggleableEditForm isOpen={ this.state.toggle }/>
+            <ToggleableEditForm isOpen={ this.state.toggle } videoId={ video.id } editVideo={ this.props.editVideo }/>
           </div>
         </div>
       </div>
@@ -91,4 +93,11 @@ _onReady(event) {
   }
 }
 
-export default VideoCard = connect(null, null /* { editVideo, deleteVideo } */)(VideoCard);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    deleteVideo: deleteVideo,
+    editVideo: editVideo
+  }, dispatch);
+};
+
+export default VideoCard = connect(null, mapDispatchToProps)(VideoCard);
