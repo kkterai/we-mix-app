@@ -9,7 +9,9 @@ export default class App extends React.Component {
       return (
         <div className="app">
           <h1 className="welcome"> Welcome! </h1>
-          <button >Enter Here</button>
+          <div className="start-here" >
+            <div><button >Signup</button><button >Login</button></div>
+          </div>
         </div>
       );
     }

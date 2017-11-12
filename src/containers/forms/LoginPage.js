@@ -29,7 +29,9 @@ class LogInPage extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.actions.loginUser(this.state.credentials);
+    const redirect = '/home'
+    const history = this.props.history
+    this.props.actions.loginUser(this.state.credentials, history, redirect);
   }
 
   render() {

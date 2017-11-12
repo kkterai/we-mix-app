@@ -14,21 +14,21 @@ export default class Navigation extends Component {
     return (
       <div>
         <Menu inverted tabular >
-          <EnsureLoggedIn>
-            <Link to="/home">
-                <Menu.Item name="home">Home</Menu.Item>
+            <Link to="/WeMix">
+                <Menu.Item name="home">We/Mix</Menu.Item>
             </Link>
-            <Link to="/find_artist">
-                <Menu.Item name="Search">Search</Menu.Item>
+            <Link to="/about">
+                <Menu.Item name="about">About</Menu.Item>
             </Link>
-                
-            <Menu.Menu position='right' to="/login" >
-                <Link onClick={this.handleLogout} >
-                  <Menu.Item name="Logout">Logout</Menu.Item>
+          
+            <Menu.Menu position='right'>
+                <Link to="/signup">
+                  <Menu.Item name="Signup">Signup</Menu.Item>
                 </Link>
-             
+                <Link to="/login">
+                  <Menu.Item name="Login">Login</Menu.Item>
+                </Link>
             </Menu.Menu>
-          </EnsureLoggedIn>
         </Menu>
       </div>
     )

@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { loggedIn } from '../utils/authenticator';
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 
 class EnsureLoggedInContainer extends React.Component {
+
     componentDidMount() {
-      if (!loggedIn() ) {
+      if (!localStorage.token) {
         this.props.history.push("/login")
       }
+      this.props.history.push("/home")
     }
   
     render() {
-      if (loggedIn()) {
-        return this.props.children
+   
+      if (!!localStorage.token) {
+        return <div>{ this.props.children }</div>
       } else {
         return null
       }
