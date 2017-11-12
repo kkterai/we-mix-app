@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
-import { loggedIn } from '../../utils/authenticator'
+import { loggedIn, logOut } from '../../utils/authenticator'
 
 export default class Navigation extends Component {
 
@@ -19,9 +19,9 @@ export default class Navigation extends Component {
               </Link>
                   
               <Menu.Menu position='right' >
-                  <Link to="/login">
-                    <Menu.Item name="Logout">Logout</Menu.Item>
-                  </Link>
+                <Link to="/">
+                  <Menu.Item name="Logout" onClick={logOut}>Logout</Menu.Item>
+                </Link>
               </Menu.Menu>
           </Menu>
         </div>
