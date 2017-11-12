@@ -1,4 +1,5 @@
 import React from 'react';
+import routes from './routes'
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -11,6 +12,7 @@ export default class App extends React.Component {
           <h1 className="welcome"> Welcome! </h1>
           <div className="start-here" >
             <div><button >Signup</button><button >Login</button></div>
+            { routes }
           </div>
         </div>
       );

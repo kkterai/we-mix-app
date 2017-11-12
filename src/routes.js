@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Navigation from './components/nav/Navigation';
-import OutNavigation from './components/nav/OutNavigation';
 import App from './App';
 import Home from './components/Home';
 import AboutPage from './components/about/AboutPage';
@@ -16,19 +15,18 @@ import SignUpPage from './containers/forms/SignUpPage';
 
 export default ( 
     <div>
-        <OutNavigation/>
+        <Navigation/>
         <Route path='/login' component={LoginPage} />
         <Route path='/signup' component={SignUpPage} />
         <Route path='/about' component={AboutPage} />
 
-        <EnsureLoggedIn>
-        <Navigation/>
+      <EnsureLoggedIn>
         <Route path='/home' component={Home}/>
         <Route path='/find_artist' component={SearchArtist} />
             <Switch>
                 <Route path='/results/videos' component={AlbumVideos} />
                 <Route path='/results' component={Albums} />
             </Switch>
-        </EnsureLoggedIn>
+      </EnsureLoggedIn>
     </div>
 );
