@@ -9,7 +9,6 @@ export default class Navigation extends Component {
     if (loggedIn()) {
       return (
         <div>
-        
           <Menu inverted tabular >
               <Link to="/home">
                   <Menu.Item name="home">Home</Menu.Item>
@@ -43,7 +42,7 @@ export default class Navigation extends Component {
                 </Link>
             </Menu.Menu>
         </Menu>
-        </div>
+      </div>
     )}
   }
 }

@@ -56,7 +56,7 @@ class VideoCard extends Component {
 
     return(
       <div className="video-wrapper">
-        <div>
+        <div className="video-card">
           <div className="track-title">
             <h2>{ video.track_title }</h2>
           </div>

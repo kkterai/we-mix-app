@@ -5,6 +5,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 require('dotenv').config();
 
+// using isomorphic-fetch to begin with
 
 export function searchArtist(name, history, redirect) {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
@@ -61,8 +62,9 @@ export function addVideo(video) {
       })}
   }
 
+  // Using axios on these below to compare
+
   export function deleteVideo(video) {
-    debugger
     const id = video.id
 
     // return (dispatch) => {
