@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Navigation from './components/nav/Navigation';
-import App from './App';
 import Home from './components/Home';
 import AboutPage from './components/about/AboutPage';
 import EnsureLoggedIn from './containers/EnsureLoggedIn';

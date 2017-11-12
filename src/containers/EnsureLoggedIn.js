@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { loggedIn } from '../utils/authenticator';
-import { withRouter, Redirect } from "react-router-dom";
+import React from 'react';
+import { withRouter } from "react-router-dom";
 
 class EnsureLoggedInContainer extends React.Component {
 

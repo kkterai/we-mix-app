@@ -1,6 +1,6 @@
 import sessionApi from '../api/sessionApi';
 import { logOut } from '../utils/authenticator';
-import { connect } from 'react-redux';
+
 
 export function loginSuccess() {
   return { type: 'LOG_IN_SUCCESS' }
