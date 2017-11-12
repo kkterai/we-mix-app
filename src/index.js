@@ -29,7 +29,7 @@ store.subscribe(throttle(() => {
 ReactDOM.render(
   <Provider store={store} >
     <Router>
-      <Route exact path='/' component={App} />
+      <App />
     </Router>
   </Provider>, document.getElementById('root')
 )

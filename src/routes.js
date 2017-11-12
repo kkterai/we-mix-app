@@ -15,7 +15,7 @@ import SignUpPage from './containers/forms/SignUpPage';
 
 export default ( 
     <div>
-        <Navigation/>
+      <Navigation/>
         <Route path='/login' component={LoginPage} />
         <Route path='/signup' component={SignUpPage} />
         <Route path='/about' component={AboutPage} />
