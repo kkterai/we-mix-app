@@ -32,13 +32,15 @@ class SearchArtist extends Component {
 
     render() {
         return(
-            <div>
+            <div className="login-signup-search"> 
+                <div className="login-signup-search-form">
                 <Form onSubmit={(event) => this.handleSubmit(event)}>
                     <Form.Field  control="text" onChange={(event) => this.handleChange(event)}>
                         <input placeholder='Search Artists' value={this.state.searchName}/>
                         <Button type='submit'>Submit</Button>
                     </Form.Field>
                 </Form>
+                </div>
             </div>
         )
     }

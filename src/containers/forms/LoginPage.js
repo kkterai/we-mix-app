@@ -3,6 +3,7 @@ import TextInput from '../../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
+import "./Form.css";
 
 
 class LogInPage extends React.Component {
@@ -36,8 +37,8 @@ class LogInPage extends React.Component {
 
   render() {
     return (
-      <div className="login"> 
-        <div className="login-form">
+      <div className="login-signup-search"> 
+        <div className="login-signup-search-form">
           <form>
             <TextInput
               name="email"
