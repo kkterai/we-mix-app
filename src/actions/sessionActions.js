@@ -1,5 +1,6 @@
 import sessionApi from '../api/sessionApi';
 import { logOut } from '../utils/authenticator';
+import createHistory from 'history/createBrowserHistory'
 
 
 export function loginSuccess() {
