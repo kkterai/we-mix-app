@@ -16,8 +16,3 @@ export function requestOptions(options = {}) {
     return {...options, headers: headers()};
 }
   
-// review for utility
-export function authorize(resource, user) {
-    return resource.user_id === user.id && !!localStorage.token;
-}
-  
