@@ -7,6 +7,7 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
             const videos = action.payload.map ( video => transform(video) )
             return Object.assign({}, { loading: false },{ videosById: videos })
         case 'ADD_VIDEO':
+            debugger
             return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
         case 'DELETE_VIDEO':
             debugger  // action not being hit by action. dispatch breaks in axios

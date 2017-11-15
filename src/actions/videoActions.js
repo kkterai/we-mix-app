@@ -1,11 +1,9 @@
 import { requestOptions } from '../utils/session';
-import axios from 'axios';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
-require('dotenv').config();
 
-// using isomorphic-fetch to begin with
+
 // AudioDB actions
 
 export function searchArtist(name, history, redirect) {
@@ -23,7 +21,7 @@ export function searchAlbum(artistId, albumId, history, redirect) {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
   return (dispatch) => {
     dispatch({ type: 'SEARCH_ALBUM_VIDEOS' });
-    return fetch(`${corsURL}http://www.theaudiodb.com/api/v1/json/195003/mvid.php?i=${artistId}`)
+    return fetch(`${corsURL}http://www.theaudiodb.com/api/v1/json/1/mvid.php?i=${artistId}`)
         .then(response => response.json())
         .then(album => dispatch({ type: 'FETCH_ALBUM_VIDEOS', payload: album , id: albumId }))
         .then(history.push(redirect));
@@ -52,48 +50,66 @@ export function addVideo(video) {
   });
 
   return(dispatch) => {
-    dispatch({ type: 'ADD_VIDEO' })
+    // dispatch({ type: 'ADD_VIDEO' })
 
     return fetch('/api/v1/videos', request )
       .then(response => response.json())
       .then(data => {
         dispatch({
-          type: 'SUCCESSFULLY_ADDED_VIDEO',
+          type: 'ADD_VIDEO',
           payload: data
         })
         return data
       })}
   }
 
-  // Using axios on these below to compare
+  export function deleteVideo(videoId) {
 
-  export function deleteVideo(video) {
-    const id = video.id
-
-    // return (dispatch) => {
-    //   dispatch({ type: 'DELETE_VIDEO' }) - deleteVideo function breaks when this is not commented out
-    // }
-
-    axios.delete(`http://localhost:3001/api/v1/videos/${id}`, {
-      authorization: `${localStorage.token}`,
-      body: `${id}`
-    })
-    .then(response => console.log(response))
-    .catch(function (error) {
-      console.log(error);
+    const request =  requestOptions({
+      method: 'POST',
+      body: JSON.stringify({ id: videoId })
     });
+
+    return(dispatch) => {
+      debugger
+      dispatch({ type: 'DELETE_VIDEO'})
+
+      return fetch(`http://localhost:3001/api/v1/videos/${videoId}`, request)
+      .then(response => {
+        console.log(response)
+        if (response.ok) {
+          dispatch({ 
+            type: 'SUCCESSFULLY_DELETED_VIDEO',
+            payload: videoId })
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
 }
 
 export function editVideo(video) {
-  debugger
   const id = video.id
 
-  axios.patch(`http://localhost:3001/api/v1/videos/${id}`, video, {
-      authorization: `${localStorage.token}`,
-      body: `${video}`
+  const request =  requestOptions({
+    method: 'PATCH',
+    body: JSON.stringify({ video: video })
+  });
+
+  return dispatch => {
+
+    return fetch(`http://localhost:3001/api/v1/videos/${id}`, request)
+    .then(response => {
+      console.log(response)
+      if (response.ok) {
+        dispatch({ 
+          type: 'EDIT_VIDEO',
+          payload: video })
+      }
     })
-    .then(response => console.log(response))
     .catch(function (error) {
       console.log(error);
     });
   }
+}

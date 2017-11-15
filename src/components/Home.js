@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import VideoCard from '../containers/video/VideoCard';
+import './Home.css'
 
 import * as actions from '../actions/videoActions';
 
@@ -23,7 +24,7 @@ class Home extends Component {
         }
 
         return (
-            <div>
+            <div className="home">
                 <h1>My Video Library</h1>
                 { videoLibrary }
             </div>

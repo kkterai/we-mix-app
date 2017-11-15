@@ -72,7 +72,7 @@ class VideoCard extends Component {
               Edit
           </button>
           <button 
-                onClick={() => deleteVideo(video)}
+                onClick={() => deleteVideo(video.id)}
                 type="button" 
                 className="btn btn-primary"
               >
