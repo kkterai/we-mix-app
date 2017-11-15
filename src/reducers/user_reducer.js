@@ -9,7 +9,7 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
         case 'ADD_VIDEO':
             return Object.assign({}, state, { videosById: state.videosById.concat(action.video) })
         case 'DELETE_VIDEO':
-            debugger 
+            debugger  // action not being hit by action. dispatch breaks in axios
             const vids = state.videosById.filter(video => video.id !== action.id);
             return Object.assign({}, { loading: false },{ videosById: vids })
         default:

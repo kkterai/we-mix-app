@@ -6,6 +6,7 @@ require('isomorphic-fetch');
 require('dotenv').config();
 
 // using isomorphic-fetch to begin with
+// AudioDB actions
 
 export function searchArtist(name, history, redirect) {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
@@ -28,6 +29,8 @@ export function searchAlbum(artistId, albumId, history, redirect) {
         .then(history.push(redirect));
     };
 }
+
+// We/Mix API Actions
 
 export function getUserVideos() {
   const request =  requestOptions({
