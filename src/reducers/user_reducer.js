@@ -11,8 +11,9 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
             let v = transform(action.payload)
             return Object.assign({}, state, { videosById: state.videosById.concat(v) })
         case 'DELETE_VIDEO':
-            debugger  // action not being hit by action. dispatch breaks in axios
-            const vids = state.videosById.filter(video => video.id !== action.id);
+            let vids = state.videosById.filter (video => detransform(video).id !== action.payload);
+            
+            debugger
             return Object.assign({}, { loading: false },{ videosById: vids })
         default:
             return state;
@@ -31,3 +32,8 @@ function transform(video) {
     return o;
 }
 
+function detransform(video) {
+    let videoKey = Object.getOwnPropertyNames(video).toString();
+    let vid = video[videoKey] 
+    return vid
+}
