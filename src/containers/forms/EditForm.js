@@ -1,20 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
+import { bindActionCreators } from 'redux'; 
+
+import { editVideo } from  '../../actions/videoActions';
 import TextInput from '../../components/common/TextInput';
 
 
-export default class EditForm extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
         video_URL: "", 
         track_title: "",
         artist: "",
         id: ""
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onChange(event,video) {
+  onChange(event) {
     let { id, artist, video_URL, track_title } = this.props.video;
     var change = {
         id: id,
@@ -58,7 +63,7 @@ export default class EditForm extends React.Component {
               label="YouTube URL"
               type="text"
               placeholder={video_URL}
-              value={this.state.video_URL}
+              value={this.props.video_URL}
               onChange={this.onChange}/>
 
             <TextInput
@@ -66,7 +71,7 @@ export default class EditForm extends React.Component {
               label="Track Title"
               type="text"
               placeholder={track_title}
-              value={this.state.track_title}
+              value={this.props.track_title}
               onChange={this.onChange}/>
 
             <TextInput
@@ -74,7 +79,7 @@ export default class EditForm extends React.Component {
               label="Artist"
               type="text"
               placeholder={artist}
-              value={this.state.artist}
+              value={this.props.artist}
               onChange={this.onChange}/>
 
             <input
@@ -87,3 +92,11 @@ export default class EditForm extends React.Component {
     );
     }
   }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      editVideo: editVideo
+    }, dispatch);
+  };
+  
+  export default EditForm = connect(null, mapDispatchToProps)(EditForm)

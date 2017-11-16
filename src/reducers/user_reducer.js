@@ -12,9 +12,11 @@ export default function userReducer(state = { loading: false, videosById: {} }, 
             return Object.assign({}, state, { videosById: state.videosById.concat(v) })
         case 'DELETE_VIDEO':
             let vids = state.videosById.filter (video => detransform(video).id !== action.payload);
-            
-            debugger
             return Object.assign({}, { loading: false },{ videosById: vids })
+        case 'EDIT_VIDEO':
+            let editVids = state.videosById.filter (video => detransform(video).id !== action.payload);
+            let editVid = transform(action.payload)
+            return Object.assign({}, { loading: false }, { videosById: state.editVids.concat(editVid) })
         default:
             return state;
     }

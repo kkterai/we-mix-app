@@ -70,7 +70,6 @@ export function addVideo(video) {
     return(dispatch) => {
       return fetch(`/api/v1/videos/${videoId}`, request)
       .then(response => {
-        console.log(response)
         if (response.ok) {
           dispatch({ 
             type: 'DELETE_VIDEO',
@@ -84,16 +83,14 @@ export function addVideo(video) {
 }
 
 export function editVideo(video) {
-  const request =  requestOptions({
+  const request = requestOptions({
     method: 'PATCH',
     body: JSON.stringify({ video: video })
   });
 
   return dispatch => {
-
     return fetch(`http://localhost:3001/api/v1/videos/${video.id}`, request)
     .then(response => {
-      console.log(response)
       if (response.ok) {
         dispatch({ 
           type: 'EDIT_VIDEO',
