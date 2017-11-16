@@ -20,9 +20,9 @@ class Navigation extends Component {
               onClick={() => this.props.history.push('/find_artist')} />
                   
             <Menu.Menu position='right' >
-              <Link to="/"> 
-                <Menu.Item name="Logout" onClick={logOut}>Logout</Menu.Item>
-              </Link>
+             
+                <Menu.Item name="Logout" onClick={() => logOut(this.props.history)}>Logout</Menu.Item>
+           
             </Menu.Menu>
           </Menu>
         </div>

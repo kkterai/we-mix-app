@@ -14,7 +14,8 @@ class VideoCard extends Component {
     super(props);
  
     this.state = {
-      toggle: false
+      toggle: false,
+      likeCounter: 0
     };
   }
     
@@ -24,6 +25,28 @@ class VideoCard extends Component {
       toggle: boolean
     })
   }
+
+  // likeButton = () => {
+  //   this.setState({
+  //     likeCounter: this.state.likeCounter + 1
+  //   })
+  // }
+
+  // callApi = () => {
+  //   console.log('a')
+  //   fetch('/api/v1/videos', {
+  //     'headers': {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `${localStorage.token}`,
+  //     },
+  //     method: 'GET'
+  //     })
+  //   .then(response => {
+  //     console.log('b')
+  //     return response.json()})
+  //   .then(userVideos => console.log('c', userVideos));
+  //   console.log('d')
+  // }
 
   render() {
 
@@ -74,8 +97,23 @@ class VideoCard extends Component {
               >
               Delete
           </button>
+          {/* <button 
+                onClick={this.likeButton}
+                type="button" 
+                className="btn btn-primary"
+              >
+              Like
+          </button>
+          { this.state.likeCounter }
+          <button 
+                onClick={this.callApi}
+                type="button" 
+                className="btn btn-primary"
+              >
+              Call Api
+          </button> */}
           <div>
-            <ToggleableEditForm isOpen={ this.state.toggle } video={ video } editVideo={ this.props.editVideo }/>
+            <ToggleableEditForm isOpen={ this.state.toggle } toggle={ this.toggleEdit.bind(this) } video={ video } editVideo={ this.props.editVideo }/>
           </div>
         </div>
       </div>

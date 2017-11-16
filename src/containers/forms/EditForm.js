@@ -39,7 +39,7 @@ class EditForm extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    
+   
     this.props.editVideo(this.state)
     this.setState(
         this.state = {
@@ -49,6 +49,7 @@ class EditForm extends React.Component {
             id: ""
         }
     )
+    this.props.toggle();
   }
 
   render() {
