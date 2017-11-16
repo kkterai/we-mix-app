@@ -50,8 +50,6 @@ export function addVideo(video) {
   });
 
   return(dispatch) => {
-    // dispatch({ type: 'ADD_VIDEO' })
-
     return fetch('/api/v1/videos', request )
       .then(response => response.json())
       .then(data => {
@@ -64,22 +62,18 @@ export function addVideo(video) {
   }
 
   export function deleteVideo(videoId) {
-
     const request =  requestOptions({
-      method: 'POST',
+      method: 'DELETE',
       body: JSON.stringify({ id: videoId })
     });
 
     return(dispatch) => {
-      debugger
-      dispatch({ type: 'DELETE_VIDEO'})
-
-      return fetch(`http://localhost:3001/api/v1/videos/${videoId}`, request)
+      return fetch(`/api/v1/videos/${videoId}`, request)
       .then(response => {
         console.log(response)
         if (response.ok) {
           dispatch({ 
-            type: 'SUCCESSFULLY_DELETED_VIDEO',
+            type: 'DELETE_VIDEO',
             payload: videoId })
         }
       })
@@ -90,8 +84,6 @@ export function addVideo(video) {
 }
 
 export function editVideo(video) {
-  const id = video.id
-
   const request =  requestOptions({
     method: 'PATCH',
     body: JSON.stringify({ video: video })
@@ -99,7 +91,7 @@ export function editVideo(video) {
 
   return dispatch => {
 
-    return fetch(`http://localhost:3001/api/v1/videos/${id}`, request)
+    return fetch(`http://localhost:3001/api/v1/videos/${video.id}`, request)
     .then(response => {
       console.log(response)
       if (response.ok) {

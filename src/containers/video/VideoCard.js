@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import YouTube from 'react-youtube';
 import { bindActionCreators } from 'redux'; 
+import YouTube from 'react-youtube';
 
-import { deleteVideo, editVideo } from '../../actions/videoActions';
+import * as actions from '../../actions/videoActions';
 import ToggleableEditForm from './ToggleableEditForm'
 
 import './video.css'
@@ -16,11 +16,7 @@ class VideoCard extends Component {
     this.state = {
       toggle: false
     };
-
-    this.toggleEdit = this.toggleEdit.bind(this);
   }
-
-  //need a lifecycle method to load videos after delete/add videos
     
   toggleEdit() { 
     const boolean = (this.state.toggle === false) ? true : false;
@@ -47,8 +43,8 @@ class VideoCard extends Component {
       youTubeVideo = 
         <YouTube
               videoId={ video.youTubeId }
-              opts={opts}
-              onReady={this._onReady}
+              opts={ opts }
+              onReady={ this._onReady }
             />
     } else {
       youTubeVideo = <h3>Edit this video to add a YouTube URL </h3>
@@ -72,7 +68,7 @@ class VideoCard extends Component {
               Edit
           </button>
           <button 
-                onClick={() => deleteVideo(video.id)}
+                onClick={() => this.props.deleteVideo(video.id)}
                 type="button" 
                 className="btn btn-primary"
               >
@@ -94,10 +90,7 @@ _onReady(event) {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    deleteVideo: deleteVideo,
-    editVideo: editVideo
-  }, dispatch);
+  return bindActionCreators(actions, dispatch);
 };
 
 export default VideoCard = connect(null, mapDispatchToProps)(VideoCard);

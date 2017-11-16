@@ -12,9 +12,6 @@ export default class EditForm extends React.Component {
         artist: "",
         id: ""
     }
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event,video) {
@@ -36,7 +33,6 @@ export default class EditForm extends React.Component {
   }
 
   onSubmit(event) {
-    debugger
     event.preventDefault();
     
     this.props.editVideo(this.state)

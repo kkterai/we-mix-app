@@ -8,8 +8,6 @@ import { addVideo } from  '../actions/videoActions';
 
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 
-// Your Rails API should handle the data persistence. You should be using fetch() 
-// within your actions to GET and POST data from your API - do not use jQuery methods.
 
 class AlbumVideos extends Component {
   
