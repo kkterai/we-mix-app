@@ -107,23 +107,23 @@ export function editVideo(video) {
 
 export function likeButton(video) {
   debugger
-  // const request = requestOptions({
-  //   method: 'PATCH',
-  //   body: JSON.stringify({ video: video })
-  // });
+  const request = requestOptions({
+    method: 'PATCH',
+    body: JSON.stringify({ video: video })
+  });
 
-  // return dispatch => {
-  //   return fetch(`http://localhost:3001/api/v1/videos/${video.id}`, request)
-  //   .then(response => {
-  //     if (response.ok) {
-  //       dispatch({ 
-  //         type: 'EDIT_VIDEO',
-  //         payload: video })
-  //     }
-  //     return video
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // }
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/videos/${video.id}`, request)
+    .then(response => {
+      if (response.ok) {
+        dispatch({ 
+          type: 'INCREMENT_LIKE',
+          payload: video })
+      }
+      return video
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 }
