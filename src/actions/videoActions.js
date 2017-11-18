@@ -57,6 +57,7 @@ export function addVideo(video) {
           type: 'ADD_VIDEO',
           payload: data
         })
+        console.log(data)
         return data
       })}
   }
@@ -96,9 +97,33 @@ export function editVideo(video) {
           type: 'EDIT_VIDEO',
           payload: video })
       }
+      return video
     })
     .catch(function (error) {
       console.log(error);
     });
   }
+}
+
+export function likeButton(video) {
+  debugger
+  // const request = requestOptions({
+  //   method: 'PATCH',
+  //   body: JSON.stringify({ video: video })
+  // });
+
+  // return dispatch => {
+  //   return fetch(`http://localhost:3001/api/v1/videos/${video.id}`, request)
+  //   .then(response => {
+  //     if (response.ok) {
+  //       dispatch({ 
+  //         type: 'EDIT_VIDEO',
+  //         payload: video })
+  //     }
+  //     return video
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+  // }
 }

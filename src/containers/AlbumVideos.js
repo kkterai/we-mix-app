@@ -38,7 +38,7 @@ class AlbumVideos extends Component {
   }
 
   handleOnClick(event) {
-    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
+    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name } , { like_count: 0 });
     this.props.addVideo(video)
   } 
 

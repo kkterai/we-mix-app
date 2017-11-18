@@ -26,11 +26,14 @@ class VideoCard extends Component {
     })
   }
 
-  // likeButton = () => {
-  //   this.setState({
-  //     likeCounter: this.state.likeCounter + 1
-  //   })
-  // }
+  handleOnClick = () => {
+    this.setState({
+      likeCounter: this.state.likeCounter + 1
+    })
+    debugger
+    const video = Object.assign({}, { like_count: this.state.likeCounter } );
+    this.props.likeButton(video)
+  }
 
   // callApi = () => {
   //   console.log('a')
@@ -62,6 +65,7 @@ class VideoCard extends Component {
     let video = this.props.video[videoKey]
 
     let youTubeVideo;
+    debugger
     if ( video.youTubeId !== "" ) {
       youTubeVideo = 
         <YouTube
@@ -97,15 +101,15 @@ class VideoCard extends Component {
               >
               Delete
           </button>
-          {/* <button 
-                onClick={this.likeButton}
+          <button 
+                onClick={() => this.handleOnClick()}
                 type="button" 
                 className="btn btn-primary"
               >
               Like
           </button>
           { this.state.likeCounter }
-          <button 
+          {/* <button 
                 onClick={this.callApi}
                 type="button" 
                 className="btn btn-primary"
