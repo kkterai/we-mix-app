@@ -13,10 +13,12 @@ export default function userReducer(state = { loading: false, videosById: [] }, 
             let vids = state.videosById.filter (video => detransform(video).id !== action.payload);
             return Object.assign({}, { loading: false },{ videosById: vids })
         case 'EDIT_VIDEO':
-            debugger
-            let editVids = state.videosById.filter (video => detransform(video).id !== action.payload.id);
-            let editVid = transform(action.payload)
-            return Object.assign({}, { loading: false }, { videosById: state.editVids.concat(editVid) })
+            for (let i = 0; i < state.videosById.length; i++) { 
+                if (state.videosById[i][action.payload.id]) {
+                    state.videosById[i][action.payload.id] = Object.assign({}, state.videosById[i][action.payload.id], action.payload ) 
+                }
+            }
+            return state
         case 'INCREMENT_LIKE':
             debugger
             return []

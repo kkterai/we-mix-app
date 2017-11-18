@@ -14,7 +14,7 @@ class EditForm extends React.Component {
         video_URL: "", 
         track_title: "",
         artist: "",
-        id: ""
+        id: this.props.video.id
       }
     }
     this.onChange = this.onChange.bind(this)
