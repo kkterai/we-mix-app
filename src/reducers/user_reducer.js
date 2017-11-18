@@ -1,21 +1,19 @@
-export default function userReducer(state = { loading: false, videosById: {} }, action) {
+export default function userReducer(state = { loading: false, videosById: [] }, action) {
 
     switch (action.type) {
         case 'LOADING_USER_VIDEOS':
             return Object.assign({}, state, {loading: true })
         case 'FETCH_USER_VIDEOS':
-        debugger
             const videos = action.payload.map ( video => transform(video) )
             return Object.assign({}, { loading: false },{ videosById: videos })
         case 'ADD_VIDEO':
-            debugger
             let v = transform(action.payload)
             return Object.assign({}, state, { videosById: state.videosById.concat(v) })
         case 'DELETE_VIDEO':
             let vids = state.videosById.filter (video => detransform(video).id !== action.payload);
             return Object.assign({}, { loading: false },{ videosById: vids })
         case 'EDIT_VIDEO':
-        debugger
+            debugger
             let editVids = state.videosById.filter (video => detransform(video).id !== action.payload.id);
             let editVid = transform(action.payload)
             return Object.assign({}, { loading: false }, { videosById: state.editVids.concat(editVid) })

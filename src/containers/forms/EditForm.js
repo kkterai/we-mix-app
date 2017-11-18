@@ -10,37 +10,33 @@ class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      video: {
         video_URL: "", 
         track_title: "",
         artist: "",
         id: ""
+      }
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
   onChange(event) {
-    let { id, artist, video_URL, track_title } = this.props.video;
-    var change = {
-        id: id,
-        artist: artist,
-        video_URL: video_URL,
-        track_title: track_title
-    }
-
-    let eventName = event.target.name
-    let eventValue = event.target.value
-    if (eventName === change[eventName] && eventValue !== change[eventValue]) {
-        change[eventName] = eventValue
-    }
-    change[event.target.name] = event.target.value
-    this.setState(change)
+    let field = event.target.name;
+    let video = this.state.video
+    video[field] = event.target.value;
+    return this.setState({ video: video });
   }
 
   onSubmit(event) {
     event.preventDefault();
-   
-    this.props.editVideo(this.state)
+    let o = {};
+    for (let property in this.state.video) {
+        if (this.state.video[property] !== "") {
+            o[property] = this.state.video[property]
+        }
+    }
+    this.props.editVideo(o)
     this.setState(
         this.state = {
             video_URL: "", 

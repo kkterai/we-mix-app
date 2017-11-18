@@ -65,7 +65,6 @@ class VideoCard extends Component {
     let video = this.props.video[videoKey]
 
     let youTubeVideo;
-    debugger
     if ( video.youTubeId !== "" ) {
       youTubeVideo = 
         <YouTube
