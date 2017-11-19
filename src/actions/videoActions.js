@@ -106,7 +106,6 @@ export function editVideo(video) {
 }
 
 export function likeButton(video) {
-  debugger
   const request = requestOptions({
     method: 'PATCH',
     body: JSON.stringify({ video: video })

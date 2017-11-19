@@ -20,8 +20,12 @@ export default function userReducer(state = { loading: false, videosById: [] }, 
             }
             return state
         case 'INCREMENT_LIKE':
-            debugger
-            return []
+            for (let i = 0; i < state.videosById.length; i++) { 
+                if (state.videosById[i][action.payload.id]) {
+                    state.videosById[i][action.payload.id] = Object.assign({}, state.videosById[i][action.payload.id], action.payload ) 
+                }
+            }
+            return state
         default:
             return state;
     }

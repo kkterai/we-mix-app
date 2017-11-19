@@ -12,10 +12,13 @@ import './video.css'
 class VideoCard extends Component {
   constructor(props) {
     super(props);
+
+    let videoKey = Object.getOwnPropertyNames(this.props.video).toString();
+    let videoProperties = this.props.video[videoKey]
  
     this.state = {
       toggle: false,
-      likeCounter: 0
+      likeCounter: videoProperties.like_count
     };
   }
     
@@ -27,11 +30,13 @@ class VideoCard extends Component {
   }
 
   handleOnClick = () => {
+    let videoKey = Object.getOwnPropertyNames(this.props.video).toString();
+    let videoProperties = this.props.video[videoKey]
+
+    const video = Object.assign({}, { like_count: this.state.likeCounter + 1 } , { id: videoProperties.id } );
     this.setState({
       likeCounter: this.state.likeCounter + 1
     })
-    debugger
-    const video = Object.assign({}, { like_count: this.state.likeCounter } );
     this.props.likeButton(video)
   }
 
