@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import VideoCard from '../containers/video/VideoCard';
+import VideoCard from '../../containers/video/VideoCard';
 import './Home.css'
 
-import * as actions from '../actions/videoActions';
+import * as actions from '../../actions/videoActions';
 
 class Home extends Component {
 
