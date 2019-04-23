@@ -30,33 +30,16 @@ class VideoCard extends Component {
     this.setState({
       likeCounter: this.state.likeCounter + 1
     })
-    debugger
     const video = Object.assign({}, { like_count: this.state.likeCounter } );
     this.props.likeButton(video)
   }
-
-  // callApi = () => {
-  //   console.log('a')
-  //   fetch('/api/v1/videos', {
-  //     'headers': {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `${localStorage.token}`,
-  //     },
-  //     method: 'GET'
-  //     })
-  //   .then(response => {
-  //     console.log('b')
-  //     return response.json()})
-  //   .then(userVideos => console.log('c', userVideos));
-  //   console.log('d')
-  // }
 
   render() {
 
     const opts = {
       height: '300',
       width: '570',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
+      playerVars: { 
         autoplay: 0
       }
     };
@@ -100,21 +83,7 @@ class VideoCard extends Component {
               >
               Delete
           </button>
-          <button 
-                onClick={() => this.handleOnClick()}
-                type="button" 
-                className="btn btn-primary"
-              >
-              Like
-          </button>
-          { this.state.likeCounter }
-          {/* <button 
-                onClick={this.callApi}
-                type="button" 
-                className="btn btn-primary"
-              >
-              Call Api
-          </button> */}
+      
           <div>
             <ToggleableEditForm isOpen={ this.state.toggle } toggle={ this.toggleEdit.bind(this) } video={ video } editVideo={ this.props.editVideo }/>
           </div>
@@ -125,7 +94,6 @@ class VideoCard extends Component {
 
 
 _onReady(event) {
-  // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
 }
