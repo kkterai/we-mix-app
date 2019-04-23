@@ -1,7 +1,7 @@
 export default function userReducer(state = { loading: false, videosById: [] }, action) {
 
     switch (action.type) {
-        case 'LOADING_USER_VIDEOS':
+        case 'LOAD_USER_VIDEOS':
             return Object.assign({}, state, {loading: true })
         case 'FETCH_USER_VIDEOS':
             const videos = action.payload.map ( video => transform(video) )
@@ -46,27 +46,6 @@ function transform(video) {
     );
     return o;
 }
-
-// function transform(video) {
-//     debugger
-//     let youTubeId;
-//     if (video.video_URL.match(/youtube/)) {
-//         youTubeId = video.video_URL.replace(/^[^_]*=/,'')
-//     } else {
-//         youTubeId = ""
-//     }
-//     let newVideo = {
-//         id: video.id, 
-//         artist: video.artist, 
-//         video_URL: video.video_URL, 
-//         track_title: video.track_title, 
-//         youTubeId: youTubeId,
-//         like_count: video.like_count
-//     }
-//     let videoMap = new Map();
-//     videoMap.set(video.id, newVideo)
-//     return videoMap
-// }
 
 function detransform(video) {
     let videoKey = Object.getOwnPropertyNames(video).toString();
