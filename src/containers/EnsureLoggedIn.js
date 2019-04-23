@@ -11,7 +11,6 @@ class EnsureLoggedInContainer extends React.Component {
     }
   
     render() {
-   
       if (!!localStorage.token) {
         return <div>{ this.props.children }</div>
       } else {

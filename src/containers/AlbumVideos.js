@@ -66,7 +66,7 @@ class AlbumVideos extends Component {
         width={650}
         height={1000}
         headerHeight={50}>
-        <Column // Video - React video player seems to only work w/ mp4 format; HTML video, iframe and object do not show a player at all
+        <Column 
             header={<Cell></Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
@@ -81,7 +81,7 @@ class AlbumVideos extends Component {
             )}
             width={150}
         />
-        <Column // Track Name 
+        <Column 
             header={<Cell>Track Name</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>
@@ -90,7 +90,7 @@ class AlbumVideos extends Component {
             )}
             width={350}
         />
-        <Column // Add Video - create button and action
+        <Column 
             header={<Cell>Add Video</Cell>}
             cell={({rowIndex, ...props}) => (
             <Cell {...props}>

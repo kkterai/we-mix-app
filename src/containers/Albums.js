@@ -6,8 +6,6 @@ import { bindActionCreators } from 'redux';
 import { searchAlbum } from  '../actions/videoActions';
 import ReactImageFallback from "react-image-fallback";
 
-// Make an 'Add Video' form available if search comes up empty - redirect to AlbumVideos
-
 class Albums extends Component {
   
   handleOnClick(event) {
@@ -28,7 +26,7 @@ render() {
       width={1150}
       height={1000}
       headerHeight={50}>
-      <Column // Album Cover; Description - find a way to cut length/"show more" to link to show page
+      <Column 
           header={<Cell></Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
@@ -46,7 +44,7 @@ render() {
           )}
           width={150}
       />
-      <Column // Album Name
+      <Column 
           header={<Cell>Album Name</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>
@@ -55,7 +53,7 @@ render() {
           )}
           width={250}
       />
-      <Column // Description
+      <Column 
           header={<Cell>Description</Cell>}
           cell={({rowIndex, ...props}) => (
           <Cell {...props}>

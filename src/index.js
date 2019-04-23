@@ -7,7 +7,6 @@ import App from './App'
 import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 
-// import routes from './routes';
 import { loadState, saveState } from './localStorage';
 
 import rootReducer from './reducers';
