@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import { loggedIn, logOut } from '../../utils/authenticator'
 
@@ -31,10 +31,6 @@ class Navigation extends Component {
     return (
       <div>
         <Menu inverted tabular >
-            <Menu.Item
-              name='About'
-              onClick={() => this.props.history.push('/about')} />
-          
             <Menu.Menu position='right'>
               <Menu.Item
                 name='Signup'
