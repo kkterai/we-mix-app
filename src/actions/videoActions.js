@@ -1,6 +1,5 @@
 import { requestOptions } from '../utils/session';
 
-require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 

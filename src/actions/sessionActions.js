@@ -2,7 +2,6 @@ import sessionApi from '../api/sessionApi';
 import { logOut } from '../utils/authenticator';
 import { requestOptions } from '../utils/session';
 
-require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 
