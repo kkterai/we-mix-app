@@ -11,34 +11,8 @@ import 'fixed-data-table-2/dist/fixed-data-table.css';
 
 class AlbumVideos extends Component {
   
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      video_URL: '',
-      track_title: ''
-    }
-  }
-
-  handleOnChange(event) {
-    const { value, name } = event.target;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleOnSubmit(event) {
-    event.preventDefault();
-    
-    this.props.addVideo(this.state);
-    this.setState({
-      video_URL: '',
-      track_title: ''
-    });
-  }
-
   handleOnClick(event) {
-    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name } , { like_count: 0 });
+    const video = Object.assign({}, { video_URL: event.target.value } , { track_title: event.target.name });
     this.props.addVideo(video)
   } 
 
@@ -48,18 +22,8 @@ class AlbumVideos extends Component {
   
     return (
 
-      <div> 
+      <div>
         <br></br>
-        <h3>Don't see what you are looking for? Add a video here:</h3>
-
-        <form onSubmit={this.handleOnSubmit} >
-            <input type="text" name="track_title" value={this.state.track_title} placeholder='Track Title' onChange={this.handleOnChange} />
-            <input type="text" name="video_URL" value={this.state.video_URL} placeholder='Video URL' onChange={this.handleOnChange} />
-          <button>Add to My Videos</button>
-        </form>
-
-        <br></br>
-
         <Table
         rowHeight={100}
         rowsCount={rows.length}
