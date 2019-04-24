@@ -13,7 +13,6 @@ class EditForm extends React.Component {
       video: {
         video_URL: "", 
         track_title: "",
-        artist: "",
         id: this.props.video.id
       }
     }
@@ -38,10 +37,9 @@ class EditForm extends React.Component {
     }
     this.props.editVideo(o)
     this.setState(
-        this.state = {
+        {
             video_URL: "", 
             track_title: "",
-            artist: "",
             id: ""
         }
     )
@@ -49,7 +47,7 @@ class EditForm extends React.Component {
   }
 
   render() {
-    let { artist, video_URL, track_title } = this.props.video;
+    let { video_URL, track_title } = this.props.video;
 
     return (
       <div className="edit"> 
@@ -69,14 +67,6 @@ class EditForm extends React.Component {
               type="text"
               placeholder={track_title}
               value={this.props.track_title}
-              onChange={this.onChange}/>
-
-            <TextInput
-              name="artist"
-              label="Artist"
-              type="text"
-              placeholder={artist}
-              value={this.props.artist}
               onChange={this.onChange}/>
 
             <input
