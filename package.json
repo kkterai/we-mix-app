@@ -21,7 +21,7 @@
     "react": "^16.12.0",
     "react-bootstrap": "^0.31.5",
     "react-dev-utils": "^9.0.0",
-    "react-dom": "^15.6.2",
+    "react-dom": "^16.12.0",
     "react-image-fallback": "^7.0.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
@@ -52,5 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
