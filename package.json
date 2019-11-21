@@ -13,6 +13,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": ">=3.4.0",
     "lodash": ">=4.17.13",
+    "lodash-es": ">=4.17.14",
     "macaddress": ">=0.2.9",
     "merge": ">=1.2.1",
     "mime": ">=1.4.1",
