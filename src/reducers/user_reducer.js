@@ -2,23 +2,25 @@ export default function userReducer(state = { loading: false, videosById: [] }, 
 
     switch (action.type) {
         case 'LOAD_USER_VIDEOS':
-            return Object.assign({}, state, {loading: true })
+            return { ...state, loading: true }
         case 'FETCH_USER_VIDEOS':
             const videos = action.payload.map ( video => transform(video) )
-            return Object.assign({}, { loading: false },{ videosById: videos })
+            return { ...state, loading: false, videosById: videos }
         case 'ADD_VIDEO':
             let v = transform(action.payload)
-            return Object.assign({}, state, { videosById: state.videosById.concat(v) })
+            return { ...state, videosById: state.videosById.concat(v) }
         case 'DELETE_VIDEO':
             let vids = state.videosById.filter (video => detransform(video).id !== action.payload);
-            return Object.assign({}, { loading: false },{ videosById: vids })
+            return { ...state, loading: false, videosById: vids }
         case 'EDIT_VIDEO':
             for (let i = 0; i < state.videosById.length; i++) { 
-                if (state.videosById[i][action.payload.id]) {
-                    state.videosById[i][action.payload.id] = Object.assign({}, state.videosById[i][action.payload.id], action.payload ) 
+                let currentVideo = state.videosById[i][action.payload.id];
+                if (currentVideo) {
+                    state.videosById[i][action.payload.id] = Object.assign({}, currentVideo, action.payload )
                 }
+                // Refactor for immutability
             }
-            return state
+            return state;
         case 'INCREMENT_LIKE':
             debugger
             return []
@@ -27,15 +29,15 @@ export default function userReducer(state = { loading: false, videosById: [] }, 
     }
   };
 
-function transform(video) {
-    let o = {};
+const transform = video => {
+    const obj = {};
     let youTubeId;
     if (video.video_URL.match(/youtube/)) {
         youTubeId = video.video_URL.replace(/^[^_]*=/,'')
     } else {
         youTubeId = ""
     }
-    o[video.id] = Object.assign(
+    obj[video.id] = Object.assign(
         {},
         { id: video.id }, 
         { artist: video.artist }, 
@@ -44,11 +46,11 @@ function transform(video) {
         { youTubeId: youTubeId },
         { like_count: video.like_count }
     );
-    return o;
+    return obj;
 }
 
-function detransform(video) {
-    let videoKey = Object.getOwnPropertyNames(video).toString();
-    let vid = video[videoKey] 
+const detransform = video => {
+    const videoKey = Object.getOwnPropertyNames(video).toString();
+    const vid = video[videoKey] 
     return vid
 }
