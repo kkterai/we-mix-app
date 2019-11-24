@@ -1,8 +1,8 @@
-export function loggedIn() {
+export const loggedIn = () => {
     return !!localStorage.token;
   }
 
-export function logOut(history) {
+export const logOut = (history) => {
     localStorage.clear();
     history.push('/')
   }
