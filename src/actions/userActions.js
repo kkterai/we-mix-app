@@ -1,6 +1,6 @@
 import userApi from '../api/userApi';
 
-export function signUpUser(user) {
+export const signUpUser = (user) => {
   return function(dispatch) {
     return userApi.signup(user).then(response => {
       localStorage.setItem('token', response.token);
