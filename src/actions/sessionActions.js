@@ -2,15 +2,15 @@ import sessionApi from '../api/sessionApi';
 import { logOut } from '../utils/authenticator';
 import { requestOptions } from '../utils/session';
 
-require('isomorphic-fetch');
+// require('isomorphic-fetch');
 
 
-export function loginUser(credentials, history, redirect) {
+export const loginUser = (credentials, history, redirect) => {
   const request =  requestOptions({
     method: 'GET'
   });
 
-  return function(dispatch) {
+  return (dispatch) => {
     return sessionApi.login(credentials)
     .then(response => {
       if (localStorage.setItem('token', response.token)) {
@@ -28,6 +28,6 @@ export function loginUser(credentials, history, redirect) {
   };
 }
 
-export function logOutUser() {
+export const logOutUser = () => {
   logOut();
 }
