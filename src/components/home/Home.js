@@ -8,7 +8,7 @@ import * as actions from '../../actions/videoActions';
 
 class Home extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.getUserVideos()
     }
 
