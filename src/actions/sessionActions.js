@@ -2,9 +2,6 @@ import sessionApi from '../api/sessionApi';
 import { logOut } from '../utils/authenticator';
 import { requestOptions } from '../utils/session';
 
-// require('isomorphic-fetch');
-
-
 export const loginUser = (credentials, history, redirect) => {
   const request =  requestOptions({
     method: 'GET'

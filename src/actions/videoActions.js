@@ -1,11 +1,8 @@
 import { requestOptions } from '../utils/session';
 
-require('isomorphic-fetch');
-
-
 // AudioDB actions
 
-export function searchArtist(name, history, redirect) {
+export const searchArtist = (name, history, redirect) => {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
   return (dispatch) => {
     dispatch({ type: 'SEARCH_ARTIST_ALBUMS' });
@@ -16,7 +13,7 @@ export function searchArtist(name, history, redirect) {
     };
 }
 
-export function searchAlbum(artistId, albumId, history, redirect) {
+export const searchAlbum = (artistId, albumId, history, redirect) => {
   const corsURL = 'https://cors-anywhere.herokuapp.com/'
   return (dispatch) => {
     dispatch({ type: 'SEARCH_ALBUM_VIDEOS' });
@@ -29,7 +26,7 @@ export function searchAlbum(artistId, albumId, history, redirect) {
 
 // We/Mix API Actions
 
-export function getUserVideos() {
+export const getUserVideos = () => {
   const request =  requestOptions({
     method: 'GET'
   });
@@ -42,7 +39,7 @@ export function getUserVideos() {
   };
 }
 
-export function addVideo(video) {
+export const addVideo = (video) => {
   const request =  requestOptions({
     method: 'POST',
     body: JSON.stringify({ video: video })
@@ -56,12 +53,11 @@ export function addVideo(video) {
           type: 'ADD_VIDEO',
           payload: data
         })
-        console.log(data)
         return data
       })}
   }
 
-  export function deleteVideo(videoId) {
+  export const deleteVideo = (videoId) => {
     const request =  requestOptions({
       method: 'DELETE',
       body: JSON.stringify({ id: videoId })
@@ -82,7 +78,7 @@ export function addVideo(video) {
     }
 }
 
-export function editVideo(video) {
+export const editVideo = (video) => {
   const request = requestOptions({
     method: 'PATCH',
     body: JSON.stringify({ video: video })
