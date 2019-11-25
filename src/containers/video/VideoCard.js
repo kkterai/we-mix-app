@@ -6,8 +6,6 @@ import YouTube from 'react-youtube';
 import * as actions from '../../actions/videoActions';
 import ToggleableEditForm from './ToggleableEditForm'
 
-import './video.css'
-
 
 class VideoCard extends Component {
   constructor(props) {

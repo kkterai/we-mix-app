@@ -3,7 +3,6 @@ import TextInput from '../../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
-import "./Form.css";
 
 
 class LogInPage extends React.Component {

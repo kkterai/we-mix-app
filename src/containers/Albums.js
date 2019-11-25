@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { searchAlbum } from  '../actions/videoActions';
 import ReactImageFallback from "react-image-fallback";
 
+
 class Albums extends Component {
   
   handleOnClick(event) {

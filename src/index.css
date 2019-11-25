@@ -1,0 +1,35 @@
+/* Home Page */
+
+@media all and (min-width: 480px) {
+    .home h1 {
+      padding: 10px 200px 0;
+    }
+}
+
+/* Forms */
+
+@media all and (min-width: 480px) {
+    .login-signup-search {
+      padding: 60px 0;
+    }
+  
+    .login-signup-search-form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+
+    .edit-form {
+      max-width: 550px;
+    }
+
+}
+
+/* Video */
+
+.video-wrapper {
+    padding: 2em;
+    background-color: #F8F8F8;
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px #888888;
+}
+  
