@@ -21,9 +21,6 @@ export default function userReducer(state = { loading: false, videosById: [] }, 
                 // Refactor for immutability
             }
             return state;
-        case 'INCREMENT_LIKE':
-            debugger
-            return []
         default:
             return state;
     }

@@ -6,8 +6,6 @@ import ReactImageFallback from "react-image-fallback";
 
 import { addVideo } from  '../actions/videoActions';
 
-import 'fixed-data-table-2/dist/fixed-data-table.css';
-
 
 class AlbumVideos extends Component {
   

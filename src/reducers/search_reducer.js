@@ -2,7 +2,7 @@ export default function searchReducer(state = { loading: false, albums: [] }, ac
     
         switch (action.type) {
             case 'SEARCH_ARTIST_ALBUMS':
-                return Object.assign({}, state, {loading: true })
+                return { ...state, loading: true }
             case 'FETCH_ARTIST_ALBUMS':
                 return { loading: false, albums: action.payload }
             default:

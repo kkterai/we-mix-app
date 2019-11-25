@@ -1,4 +1,4 @@
-export function headers() {
+export const headers = () => {
     let headers = {
       'Content-Type': 'application/json',
     }
@@ -12,7 +12,7 @@ export function headers() {
     return headers;
 }
   
-export function requestOptions(options = {}) {
+export const requestOptions = (options = {}) => {
     return {...options, headers: headers()};
 }
   
