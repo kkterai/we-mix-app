@@ -16,18 +16,16 @@ class EditForm extends React.Component {
         id: this.props.video.id
       }
     }
-    this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onChange(event) {
+  onChange = (event) => {
     let field = event.target.name;
     let video = this.state.video
     video[field] = event.target.value;
     return this.setState({ video: video });
   }
 
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
     let o = {};
     for (let property in this.state.video) {

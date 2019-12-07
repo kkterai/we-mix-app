@@ -15,19 +15,16 @@ class LogInPage extends React.Component {
           password: "" 
         }
       }
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange(event) {
+  onChange = (event) => {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
     return this.setState({credentials: credentials});
   }
 
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
     const redirect = '/home'
     const history = this.props.history

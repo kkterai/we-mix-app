@@ -20,7 +20,6 @@ class SearchArtist extends Component {
     }
     
     handleSubmit(event) {
-
         const redirect = "/results"
 
         event.preventDefault();
@@ -30,6 +29,7 @@ class SearchArtist extends Component {
             searchName: ''
         })
     }
+    // Experiment w/ arrows here.
 
     render() {
         return(
