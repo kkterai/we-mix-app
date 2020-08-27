@@ -7,8 +7,9 @@ class EnsureLoggedInContainer extends React.Component {
     componentDidMount() {
       if (!localStorage.token) {
         this.props.history.push("/login")
+      } else {
+        this.props.history.push("/home")
       }
-      this.props.history.push("/home")
     }
   
     render() {
