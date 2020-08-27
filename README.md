@@ -9,7 +9,7 @@ This was originally part of a two-month long project built during my fifth modul
 
 Originally I wanted to build an application that allowed users to both create their own and group video libraries (the latter, the reason for the "we" in WeMix). I started this process by using the `create-react-app` boilerplate, then adding `react-router-4.0` and `redux`.  
 
-One of the main challenges was authentication, which I solved through research and video tutorials. You can find more about this process [here](https://medium.com/@kenlynterai/final-project-react-redux-decf320c29d4).
+One of the main challenges was authentication, which I solved through research and video tutorials. You can find more about my process [here](https://medium.com/@kenlynterai/final-project-react-redux-decf320c29d4).
 
 ## Installation
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
@@ -35,4 +35,4 @@ Video by [Emirhan Bal]("https://pixabay.com/?utm_source=link-attribution&amp;utm
 ## License
 This app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-MIT © [Kenlyn Terai](2020)
+MIT © Kenlyn Terai 2020
