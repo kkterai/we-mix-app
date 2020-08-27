@@ -27,7 +27,7 @@ To Visit App:
 `localhost:3000`  
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/we-mix-app. This project is intended to be a safe, welcoming space for collaboration and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kkterai/we-mix-app. This project is intended to be a safe, welcoming space for collaboration and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Credits
 Video by [Emirhan Bal]("https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=15174") from Pixabay
