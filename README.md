@@ -29,9 +29,6 @@ To Visit App:
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/kkterai/we-mix-app. This project is intended to be a safe, welcoming space for collaboration and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-## Credits
-Video by [Emirhan Bal]("https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=15174") from Pixabay
-
 ## License
 This app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
