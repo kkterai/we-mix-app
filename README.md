@@ -1,7 +1,7 @@
 ## WeMix
-WeMix is an app that enables users to build their own music video library. Built with[React](https://reactjs.org/), [Redux](https://redux.js.org/), JavaScript, and CSS.
+WeMix is an app that enables users to build their own music video library. Built with [React](https://reactjs.org/), [Redux](https://redux.js.org/), JavaScript, and CSS.
 
-[Imgur](https://i.imgur.com/aGog6YK.png)
+<a href="https://imgur.com/aGog6YK"><img src="https://i.imgur.com/aGog6YK.png" title="source: imgur.com" /></a>
 
 ## Reflection
 
