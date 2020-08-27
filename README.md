@@ -5,7 +5,7 @@ WeMix is an app that enables users to build their own music video library. Built
 
 ## Reflection
 
-This was originally part of a two-month long project built during my fifth module at Flatiron School. Project goals included building a Rails api and a React/Redux front end.
+This was originally part of a two-month long project built during my fifth module at Flatiron School. Project goals included building a Rails API and a React/Redux front end.
 
 Originally I wanted to build an application that allowed users to both create their own and group video libraries (the latter, the reason for the "we" in WeMix). I started this process by using the `create-react-app` boilerplate, then adding `react-router-4.0` and `redux`.  
 
