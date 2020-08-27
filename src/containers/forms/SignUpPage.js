@@ -1,39 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextInput from '../../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 
 
-class SignUpPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: 
+const SignUpPage = (props) => {
+
+  const [user, setUser] = useState(
         {
           username: "",
           email: "", 
           password: "" 
         }
-      }
+      );
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  const onChange = (event) => {
+    const property = event.target.name;
+    const newUser = {...user}
+    newUser[property] = event.target.value;
+    setUser(newUser);
   }
 
-  onChange(event) {
-    const field = event.target.name;
-    const user = this.state.user;
-    user[field] = event.target.value;
-    return this.setState({user: user});
-  }
-
-  onSubmit(event) {
+  const onSubmit = (event) => {
     event.preventDefault();
-    this.props.actions.signUpUser(this.state.user);
+    props.actions.signUpUser(user);
   }
 
-  render() {
     return (
       <div className="login-signup-search"> 
         <div className="login-signup-search-form">
@@ -41,31 +34,30 @@ class SignUpPage extends React.Component {
             <TextInput
               name="username"
               label="username"
-              value={this.state.user.username}
-              onChange={this.onChange}/>
+              value={user.username}
+              onChange={onChange}/>
 
             <TextInput
               name="email"
               label="email"
-              value={this.state.user.email}
-              onChange={this.onChange}/>
+              value={user.email}
+              onChange={onChange}/>
 
             <TextInput
               name="password"
               label="password"
               type="password"
-              value={this.state.user.password}
-              onChange={this.onChange}/>
+              value={user.password}
+              onChange={onChange}/>
 
             <input
               type="submit"
               className="btn btn-primary"
-              onClick={this.onSubmit}/>
+              onClick={onSubmit}/>
           </form>
         </div>
       </div>
   );
-  }
 }
 
 function mapDispatchToProps(dispatch) {
